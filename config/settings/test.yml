@@ -1,0 +1,17 @@
+moip:
+  environment: sandbox
+  token: null
+  key: null
+  return_url: null
+  notification_url: null
+
+crs:
+  import_user_url: http://www.swingreal.com/confirmaopen.asp
+
+bitly:
+  username: opencrs
+  apikey: R_2990f926f90a4b3c8a2141967cddbee9
+
+posts:
+  comments_limit: 20
+  minutes_to_reset_count: 1

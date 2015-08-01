@@ -1,0 +1,96 @@
+pt:
+  activerecord:
+    models:
+      user: Usuário
+      profile: Perfil
+      comment: Comentário
+      favorite: Favorito
+      message: Mensagem
+      order: Pedido
+      post: Postagem
+      forbidden_word: Palavras Proibidas
+    attributes:
+      default: &default
+        created_at: Criado em
+        updated_at: Atualizado em
+      forbidden_word:
+        word: Palavra Proibida
+        <<: *default
+      user:
+        login: Usuário ou Email
+        username: Usuario / login
+        password: Senha
+        password_confirmation: Confirmação da Senha
+        current_password: Senha atual
+        remember_me: Manter logado
+        email: Email
+        language: Idioma
+        kind: Tipo de Usuário
+        plan: Assinatura Atual
+      profile:
+        name: Nome de exibição
+        avatar: Foto de avatar
+        kind: Tipo de Perfil
+        interested_in: Interesses
+        goals: Objetivos
+        country: País
+        city: Cidade
+        state: Estado
+        ethnicity: Etnia
+        hair_color: Cor dos Cabelos
+        hair_style: Cabelos
+        physical_appearence: Tipo Físico
+        eyes_color: Cor dos Olhos
+        education_level: Escolaridade
+        favorite_drink: Bebida Predileta
+        strengths: Ponto Forte
+        about_me: Me Considero
+        height: Altura
+        weight: Peso
+        smoke: Fuma
+        drink: Bebe
+        tatoo: Tatuagem
+        piercing: Piercing
+        children: Filhos
+        proposal: Proposta
+        created_at: Criado em
+        updated_at: Atualizado em
+        interest_men: Homens
+        interest_women: Mulheres
+        interest_tranny: Travestis
+        interest_couples: Casais (ele/ela)
+        interest_male_couples: Casais de Homens
+        interest_female_couples: Casais de Mulheres
+        interest_tranny_couples: Casais de Travestis
+        fetish_exhibitionism: Exibicionismo
+        fetish_voyeurism: Voyeurismo
+        fetish_fantasies: Fantasias
+        fetish_lingeries: Lingeries
+        fetish_photos_and_videos: Fotos e Vídeos
+        fetish_public_sex: Sexo em locais públicos
+        fetish_sadomasochism: Sadomasoquismo
+        fetish_domination: Dominação
+        fetish_bondage: Bondage
+        fetish_feet: Podolatria
+        fetish_dark: Sexo às escuras
+        like_caress: Troca de Carícias
+        like_female_menage: Ménage Feminino
+        like_female_bi: Bi Feminino
+        like_same_environment: Mesmo Ambiente
+        like_swing: Troca de Casais
+        like_male_menage: Ménage Masculino
+        like_male_bi: Bi Masculino
+        like_grupal: Grupal
+        dislike_caress: Troca de Carícias
+        dislike_female_menage: Ménage Feminino
+        dislike_female_bi: Bi Feminino
+        dislike_same_environment: Mesmo Ambiente
+        dislike_swing: Troca de Casais
+        dislike_male_menage: Ménage Masculino
+        dislike_male_bi: Bi Masculino
+        dislike_grupal: Grupal
+        gender: Tipo de parceiro
+        nickname: Apelido
+        date_birth: Data de Nascimento
+        date_birth_two: Data de Nascimento
+        sexual_orientation: Orientação sexual

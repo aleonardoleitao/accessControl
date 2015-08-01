@@ -1,0 +1,76 @@
+avatar:
+  processors:
+    - watermark
+  styles:
+    medium:
+      geometry: 300x300>
+      format: jpg
+      watermark_path: <%= Rails.root.join('app', 'assets', 'images', 'rails.png') %>
+      convert_options:
+        - -strip
+    thumb100:
+      geometry: 100x100#
+      format: jpg
+      convert_options:
+        - -strip
+    thumb26:
+      geometry: 26x26#
+      format: jpg
+      convert_options:
+        - -strip
+  default_url: /images/avatar-missing.png
+  url: /media/avatar/:id_partition/:hash.:extension
+  hash_secret: c3f00a51cc94e79a32ae8b0acd224ec59ce34e69bc4d957b81e5729472d42ed0a243676115e206e59fd828821aef49244eefdf5e7c42d3b09ffa30d854ecee7f
+post_foto:
+  processors:
+    - watermark
+  styles:
+    medium:
+      geometry: 220x194#
+      format: jpg
+      watermark_path: <%= Rails.root.join('app', 'assets', 'images', 'marcadagua.png') %>
+      convert_options:
+        - -strip
+    medium698:
+      geometry: 698>
+      watermark_path: <%= Rails.root.join('app', 'assets', 'images', 'marcadagua.png') %>
+      convert_options:
+        - -strip
+    thumb80:
+      geometry: 80x80#
+      format: jpg
+      convert_options:
+        - -strip
+    jpeg640:
+      geometry: 640x360#
+      format: jpg
+      watermark_path: <%= Rails.root.join('app', 'assets', 'images', 'marcadagua.png') %>
+      convert_options:
+        - -strip
+  default_url: /images/avatar-missing.png
+  url: /media/posts/:id_partition/:hash.:extension
+  hash_secret: c3f00a51cc94e79a32ae8b0acd224ec59ce34e69bc4d957b81e5729472d42ed0a243676115e206e59fd828821aef49244eefdf5e7c42d3b09ffa30d854ecee7f  
+post_video:
+  styles:
+    medium:
+      geometry: 220x194#
+      format: jpg
+      convert_options:
+        - -strip
+    medium698:
+      geometry: 698>
+      convert_options:
+        - -strip
+    thumb80:
+      geometry: 80x80#
+      format: jpg
+      convert_options:
+        - -strip
+    jpeg640:
+      geometry: 640x360#
+      format: jpg
+      convert_options:
+        - -strip
+  default_url: /images/avatar-missing.png
+  url: /media/posts/:id_partition/:hash.:extension
+  hash_secret: c3f00a51cc94e79a32ae8b0acd224ec59ce34e69bc4d957b81e5729472d42ed0a243676115e206e59fd828821aef49244eefdf5e7c42d3b09ffa30d854ecee7f

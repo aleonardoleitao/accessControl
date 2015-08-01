@@ -1,0 +1,86 @@
+en:
+  edit: Edit
+  error: Error
+  sign_up: Create account
+  sign_in: Sign in
+  sign_out: Logout
+  resend: Resend
+  settings: Settings
+  welcome: Welcome
+  forgot_my_password: Forgot my password
+  did_not_receive_confirmation_email: Didn't receive confirmation email?
+  did_not_receive_unlock_email: Didn't receive unlock instructions?
+  update: Update
+  confirm_question: Are you sure?
+  confirm: Confirm
+  controllers:
+    profiles_controller:
+      success_updated: Profile was successfully updated.
+  views:
+    home:
+      public_home:
+        login: Login
+        password: Password
+        username: Nome de usuário
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de Senha
+        submit: Submit
+        any_doubt: Any doubt?
+        click_here: Click here!
+    profiles:
+      form:
+        kind:
+          single: Single
+          couple: Couple
+        interested_in:
+          couple: Couple
+          men: Men
+          women: Women
+          transex: Transex
+        goals:
+          mesmo_ambiente: Mesmo ambiente
+          troca_de_caricias: Troca de carícias
+          troca_de_caricias_elas: Troca de carícias elas
+          troca_de_caricias_eles: Troca de carícias eles
+          bi_feminino: Bi feminino
+          bi_masculino: Bi masculino
+          menage_feminino: Menage feminino
+          menage_masculino: Menage masculino
+          menage_feminino_com_bi: Menage feminino com bi
+          menage_masculino_com_bi: Menage masculino com bi
+          troca_de_casais: Troca de casais
+          grupal: Grupal
+    devise:
+      confirmations:
+        new:
+          title: Activate your account
+          message_one: Acesse seu email e clique no link "Ativar Minha Conta Agora" para começar a navegar
+          message_two: Enviamos a mensagem de ativação para o email abaixo
+          message_three: Caso não tenha recebido, clique no botão abaixo que reenviaremos a mensagem para você.
+          box_title: Atenção!
+          box_message: Cheque sua pasta de spam antes de solicitar o reenvio da mensagem.
+          submit: Reenviar mensagem de confirmação
+      passwords:
+        new:
+          title: Forgot your password?
+        edit:
+          title: Change your password
+          password_placeholder: Your new password
+          password_confirmation_placeholder: Confirm your new password
+      registrations:
+        new:
+          title: Create account
+        edit:
+          title: Account settings
+          password_placeholder: Leave blank if you don't want to change it
+          current_password_placeholder: We need your current password to confirm your changes
+          waiting_confirmation_alert: Currently waiting confirmation for
+        form_profile_username:
+          cancel_my_account: Delete account
+      unlocks:
+        new:
+          title: Resend unlock instructions
+      sessions:
+        new:
+          sign_in_title: Sign in

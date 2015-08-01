@@ -1,0 +1,33 @@
+kind:
+  single: 0
+  couple: 1
+interested_in:
+  couple: 0
+  men: 1
+  women: 2
+  transex: 3
+goals:
+  mesmo_ambiente: 0
+  troca_de_caricias: 1
+  troca_de_caricias_elas: 2
+  troca_de_caricias_eles: 3
+  bi_feminino: 4
+  bi_masculino: 5
+  menage_feminino: 6
+  menage_masculino: 7
+  menage_feminino_com_bi: 8
+  menage_masculino_com_bi: 9
+  troca_de_casais: 10
+  grupal: 11
+interest_images:
+  interest_men: profile-kind-male.png
+  interest_women: profile-kind-female.png
+  interest_tranny: profile-kind-transex.png
+  interest_couples: profile-kind-couple.png
+  interest_male_couples: profile-kind-couple-male.png
+  interest_female_couples: profile-kind-couple-female.png
+  interest_tranny_couples: profile-kind-couple-transex.png
+gender_images:
+  male: profile-kind-male.png
+  female: profile-kind-female.png
+  transex: profile-kind-transex.png

@@ -1,0 +1,25 @@
+messages:
+  lifetime_in_days:
+    visitor: 4
+    default: 14
+plan:
+  free:
+    description: OpenCRS - 3 dias grátis
+    price: 0.00
+    period: 3.days
+    days: 3
+  monthly:
+    description: OpenCRS - Pacote Mensal - Acesso ilimitado por 30 dias
+    price: 10.00
+    period: 1.month
+    days: 30
+  quarterly:
+    price: 20.00
+    description: OpenCRS - Pacote Trimestral - Acesso ilimitado por 90 dias
+    period: 3.months
+    days: 90
+  semiannual:
+    price: 30.00
+    description: OpenCRS - Pacote Semestral - Acesso ilimitado por 180 dias
+    period: 6.months
+    days: 180

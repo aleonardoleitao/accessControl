@@ -1,0 +1,15 @@
+messages_clean_up:
+  cron: "0 5 * * *"
+  class: MessagesJob
+  queue: messages
+  description: "Faz o expurgo das mensagens"
+online:
+  cron: "* * * * *"
+  class: OnlineJob
+  queue: online
+  description: "Coloca usuários sem atividade como offline"
+ranking:
+  cron: "* * * * *"
+  class: RankingJob
+  queue: ranking
+  description: "Contabiliza o ranking de todos os posts"

@@ -1,0 +1,19 @@
+moip:
+  environment: sandbox
+  #token: 9WX6TT7RTFWII9SCYLSJCMKMFPYEYV5Z
+  #key: QORDPYN2Y1TV85AWYMYIZKHVL4VXI5SJWTUUS9Y2
+  token: EM2OIQUBZ61RGVL2KWPTW2PAPFX4KICW
+  key: A47SNLK50YGTWGGN8D4GY7FOLMHWJ4ZYO27MLJEN
+  return_url: http://dev.sex.com
+  notification_url: http://dev.sex.com/moip/notification
+
+crs:
+  import_user_url: http://www.swingreal.com/confirmaopen.asp
+
+bitly:
+  username: opencrs
+  apikey: R_2990f926f90a4b3c8a2141967cddbee9
+
+posts:
+  comments_limit: 20
+  minutes_to_reset_count: 1
