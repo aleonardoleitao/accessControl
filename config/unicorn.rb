@@ -23,7 +23,7 @@ pid "/opt/railsapps/#{project_path}/shared/pids/unicorn.pid"
 
 listen "127.0.0.1:3004"
 
-user "r2admin", "5va3sf#!"
+user "r2admin", "r2admin"
 
 # Fill path to your app
 working_directory app_path
