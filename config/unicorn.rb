@@ -29,8 +29,8 @@ user "r2admin", "r2admin"
 working_directory app_path
 
 # Log everything to one file
-stderr_path "log/unicorn-accesscontrol.log"
-stdout_path "log/unicorn-accesscontrol.log"
+stderr_path "/opt/log-mp4/unicorn-accesscontrol-erro.log"
+stdout_path "/opt/log-mp4/unicorn-accesscontrol-out.log"
 
 after_fork do |server, worker|
   Redis.current.quit
