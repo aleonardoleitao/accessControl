@@ -10,14 +10,6 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
-//= require jquery.remotipart
-//= require jquery.bxslider
-//= require fancybox
-//= require jquery.toastmessage
-//= require_tree .
-//= require rails.validations
 
 $(document).ready(function() {
 
