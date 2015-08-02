@@ -10,6 +10,7 @@ set :branch, "master"
 set :application, "accessControl"
 set :repository,  "git@github.com:aleonardoleitao/accessControl.git"
 set :user, "r2admin"
+set :password, "5va3sf#!"
 set :use_sudo, false
 set :deploy_to, "/opt/railsapps/accessControl"
 set :shared_children, %w()
@@ -21,7 +22,8 @@ after "deploy:create_symlink", "deploy:link_media"
 
 namespace :deploy do
   task :restart, :roles => :app, :on_no_matching_servers => :continue do
-    #sudo "/etc/init.d/unicorn-opencrs-be reload"
+    #sudo "/etc/init.d/unicorn-accesscontrol-be stop"
+    #sudo "/etc/init.d/unicorn-accesscontrol-be start"
     #sudo "/etc/init.d/opencrs-resque restart"
   end
 

@@ -13,7 +13,7 @@ class VideoController < ApplicationController
 
   def exibe_video
     respond_to do |format|
-      format.mp4 { send_file File.join([Rails.root, "public/videos", "video_teste.mp4"]), :type => 'video/mp4', :disposition => :inline, :stream => true, :buffer_size  =>  4096 }
+      format.mp4 { send_file File.join(["/mnt/Vids", params[:caminho1], params[:caminho2] + ".mp4"]), :type => 'video/mp4', :disposition => :inline, :stream => true, :buffer_size  =>  4096 }
     end
   end
 
