@@ -18,8 +18,8 @@ timeout 180
 
 project_path = rails_env.split("-").first
 
-app_path = "/opt/railsapps/#{project_path}/current"
-pid "/opt/railsapps/#{project_path}/shared/pids/unicorn.pid"
+app_path = "/opt/railsapps/accessControl/current"
+pid "/opt/railsapps/accessControl/shared/pids/unicorn.pid"
 
 listen "127.0.0.1:3004"
 
