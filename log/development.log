@@ -1,0 +1,418 @@
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:13:42 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (2.5ms)
+Completed 200 OK in 28.3ms (Views: 24.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:13:46 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 40.9ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:15:53 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.3ms)
+Completed 200 OK in 5.4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:15:53 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:15:53', 'video/3000/1000', 0, 'jV35ZHrKJsVBb98ZWm3rVzc-ki0&e=1438557953', '2015-08-02 23:15:53')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 57.9ms (Views: 0.2ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:16:56 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.6ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:16:56 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:16:56', 'video/3000/1000', 0, 'rhhpH_NcE_qii0858nf42Di4OX0&e=1438558016', '2015-08-02 23:16:56')[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Completed 200 OK in 7.2ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:17:04 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 7.3ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:17:06 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.3ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:17:29 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.1ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:20:05 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:20:05 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:20:05', 'video/3000/1000', 0, 'zasBsrn5rFMG5Vugk1eqZyoSPiI&e=1438558205', '2015-08-02 23:20:05')
+  [1m[36m (50.9ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 55.0ms (Views: 0.2ms | ActiveRecord: 51.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=zasBsrn5rFMG5Vugk1eqZyoSPiI&e=1438558205" for 127.0.0.1 at 2015-08-02 20:20:08 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"zasBsrn5rFMG5Vugk1eqZyoSPiI", "e"=>"1438558205", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.5ms)
+Completed 200 OK in 5.2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:20:09 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 6.1ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:20:10 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.2ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:20:10 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:20:10', 'video/3000/1000', 0, 'D2dkdu44pNL1I1bNYYLQKF34E_E&e=1438558210', '2015-08-02 23:20:10')[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+Completed 200 OK in 6.6ms (Views: 0.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:21:58 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.4ms)
+Completed 200 OK in 6.0ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:21:59 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (67.4ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:21:59', 'video/3000/1000', 0, '1rhNAsR1yXjJnsU4NcgK5PJrggw&e=1438558319', '2015-08-02 23:21:59')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 74.4ms (Views: 0.2ms | ActiveRecord: 68.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=1rhNAsR1yXjJnsU4NcgK5PJrggw&e=1438558319" for 127.0.0.1 at 2015-08-02 20:22:13 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"1rhNAsR1yXjJnsU4NcgK5PJrggw", "e"=>"1438558319", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 2.6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:22:13 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 6.4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:22:35 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 6.4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:22:36 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:22:36', 'video/3000/1000', 0, 'QtFpYr4L1Wlw5XGDvXbbtvXPh44&e=1438558356', '2015-08-02 23:22:36')[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+Completed 200 OK in 5.2ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/video/3000/1000.mp4?token=QtFpYr4L1Wlw5XGDvXbbtvXPh44&e=1438558356" for 127.0.0.1 at 2015-08-02 20:22:58 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"QtFpYr4L1Wlw5XGDvXbbtvXPh44", "e"=>"1438558356", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 3.8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:22:58 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 6.3ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:23:44 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 6.4ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:23:45 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:23:45', 'video/3000/1000', 0, 'VsN5b2JTs_xwH1m2kdEFl-8wr2U&e=1438558425', '2015-08-02 23:23:45')
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 7.8ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:23:46 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 7.1ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:23:46 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:23:46', 'video/3000/1000', 0, 'fltJijLXEWbryXw-29761F7Kn1E&e=1438558426', '2015-08-02 23:23:46')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+Completed 200 OK in 6.9ms (Views: 0.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/video/3000/1000.mp4?token=fltJijLXEWbryXw-29761F7Kn1E&e=1438558426" for 127.0.0.1 at 2015-08-02 20:23:48 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"fltJijLXEWbryXw-29761F7Kn1E", "e"=>"1438558426", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.5ms)
+Completed 200 OK in 3.5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:23:48 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.1ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:24:13 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 8.3ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:24:13 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:24:13', 'video/3000/1000', 0, 'za2VOI3Y2Y1NFdKLcDLjKs2Gkic&e=1438558453', '2015-08-02 23:24:13')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 7.2ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/video/3000/1000.mp4?token=za2VOI3Y2Y1NFdKLcDLjKs2Gkic&e=1438558453" for 127.0.0.1 at 2015-08-02 20:24:14 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"za2VOI3Y2Y1NFdKLcDLjKs2Gkic", "e"=>"1438558453", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 3.0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:24:15 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.1ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:24:16 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 4.9ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:24:16 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:24:16', 'video/3000/1000', 0, '9wEOPePH1hoPZ7P3Fpok8kE6L94&e=1438558456', '2015-08-02 23:24:16')[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Completed 200 OK in 6.5ms (Views: 0.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=9wEOPePH1hoPZ7P3Fpok8kE6L94&e=1438558456" for 127.0.0.1 at 2015-08-02 20:24:18 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"9wEOPePH1hoPZ7P3Fpok8kE6L94", "e"=>"1438558456", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 4.0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:24:18 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 8.5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:24:20 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.5ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:24:20 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:24:20', 'video/3000/1000', 0, '3sBWPUQ1UTn6f-o7Isqc_S0anuQ&e=1438558460', '2015-08-02 23:24:20')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 6.0ms (Views: 0.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=3sBWPUQ1UTn6f-o7Isqc_S0anuQ&e=1438558460" for 127.0.0.1 at 2015-08-02 20:24:23 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"3sBWPUQ1UTn6f-o7Isqc_S0anuQ", "e"=>"1438558460", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 2.7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:24:24 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 7.7ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:24:32 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 8.4ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:24:32 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:24:32', 'video/3000/1000', 0, 'I9WdkAQv4lcvc0rsACgkByhAYZM&e=1438558472', '2015-08-02 23:24:32')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 200 OK in 5.2ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/video/3000/1000.mp4?token=I9WdkAQv4lcvc0rsACgkByhAYZM&e=1438558472" for 127.0.0.1 at 2015-08-02 20:24:34 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"I9WdkAQv4lcvc0rsACgkByhAYZM", "e"=>"1438558472", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 2.6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:24:34 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 6.8ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:24:37 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 8.0ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:24:37 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:24:37', 'video/3000/1000', 0, 'JjHfWBVHi8pjTpl5mFirzIPaMRg&e=1438558477', '2015-08-02 23:24:37')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 5.4ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:25:04 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 6.0ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:25:04 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:25:04', 'video/3000/1000', 0, '45WSAfheT7egHxXuRZet0vTFEV8&e=1438558504', '2015-08-02 23:25:04')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 200 OK in 6.0ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/video/3000/1000.mp4?token=45WSAfheT7egHxXuRZet0vTFEV8&e=1438558504" for 127.0.0.1 at 2015-08-02 20:25:07 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"45WSAfheT7egHxXuRZet0vTFEV8", "e"=>"1438558504", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 2.8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/video/3000/1000.mp4?token=45WSAfheT7egHxXuRZet0vTFEV8&e=1438558504" for 127.0.0.1 at 2015-08-02 20:25:07 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"45WSAfheT7egHxXuRZet0vTFEV8", "e"=>"1438558504", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 2.6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:25:38 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.3ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:25:39 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (1.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:25:39', 'video/3000/1000', 0, 'imMYDLS369uVpzOQtXBgvU3M48g&e=1438558539', '2015-08-02 23:25:39')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 9.1ms (Views: 0.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:26:06 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.9ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:26:06 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:26:06', 'video/3000/1000', 0, 'H9owBsKKgQdgtZyIdPZ0RwEnzRA&e=1438558566', '2015-08-02 23:26:06')[0m
+  [1m[35m (2.5ms)[0m  COMMIT
+Completed 200 OK in 8.6ms (Views: 0.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/video/3000/1000.mp4?token=H9owBsKKgQdgtZyIdPZ0RwEnzRA&e=1438558566" for 127.0.0.1 at 2015-08-02 20:26:07 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"H9owBsKKgQdgtZyIdPZ0RwEnzRA", "e"=>"1438558566", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 2.8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/video/3000/1000.mp4?token=H9owBsKKgQdgtZyIdPZ0RwEnzRA&e=1438558566" for 127.0.0.1 at 2015-08-02 20:26:07 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"H9owBsKKgQdgtZyIdPZ0RwEnzRA", "e"=>"1438558566", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 2.3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:26:11 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.9ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:26:11 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:26:11', 'video/3000/1000', 0, 'CoDCB2uwr2gYRe2OI5q3jF3UXWY&e=1438558571', '2015-08-02 23:26:11')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 7.5ms (Views: 0.3ms | ActiveRecord: 2.4ms)

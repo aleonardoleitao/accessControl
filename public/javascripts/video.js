@@ -28,7 +28,7 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 				//urlServer = "http://clappr.io/" + data.path + ".mp4?token=" + data.token;
 				urlServer = urlServer + "/" + data.path + ".mp4?token=" + data.token;
 				comandos = '"' + imagem + '","' + urlServer + '","' + idVideo + '","' + width + '"';
-				div.append("<img src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
+				div.append("<img style='cursor:pointer; height: 360px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
 
 	        }
 	    });//termina o ajax

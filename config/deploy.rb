@@ -22,8 +22,8 @@ after "deploy:create_symlink", "deploy:link_media"
 
 namespace :deploy do
   task :restart, :roles => :app, :on_no_matching_servers => :continue do
-    #sudo "/etc/init.d/unicorn-accesscontrol-be stop"
-    #sudo "/etc/init.d/unicorn-accesscontrol-be start"
+    sudo "/etc/init.d/unicorn-accesscontrol-be stop"
+    sudo "/etc/init.d/unicorn-accesscontrol-be start"
     #sudo "/etc/init.d/opencrs-resque restart"
   end
 
