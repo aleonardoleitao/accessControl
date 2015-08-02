@@ -5,13 +5,13 @@ require 'capistrano/ext/multistage'
 set :stages, %w{production qa1}
 set :default_stage, "qa1"
 
-set :branch, "20150511_pagamento"
+set :branch, "master"
 
-set :application, "opencrs"
-set :repository,  "git@github.com:marcnit/openCRS.git"
-set :user, "opencrs"
+set :application, "accessControl"
+set :repository,  "git@github.com:aleonardoleitao/accessControl.git"
+set :user, "r2admin"
 set :use_sudo, false
-set :deploy_to, "/opt/railsapps/opencrs"
+set :deploy_to, "/opt/railsapps/accessControl"
 set :shared_children, %w()
 set :deploy_via, :remote_cache
 
@@ -21,11 +21,11 @@ after "deploy:create_symlink", "deploy:link_media"
 
 namespace :deploy do
   task :restart, :roles => :app, :on_no_matching_servers => :continue do
-    sudo "/etc/init.d/unicorn-opencrs-be reload"
-    sudo "/etc/init.d/opencrs-resque restart"
+    #sudo "/etc/init.d/unicorn-opencrs-be reload"
+    #sudo "/etc/init.d/opencrs-resque restart"
   end
 
   task :link_media, :roles => :app, :on_no_matching_servers => :continue do
-    run "rm -rf /opt/railsapps/opencrs/current/public/media && ln -sf /opt/railsapps/opencrs/shared/media /opt/railsapps/opencrs/current/public/media"
+    run "rm -rf /opt/railsapps/accessControl/current/public/media && ln -sf /opt/railsapps/accessControl/shared/media /opt/railsapps/accessControl/current/public/media"
   end
 end

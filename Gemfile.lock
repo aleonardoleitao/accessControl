@@ -318,6 +318,3 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   unicorn
   will_paginate
-
-BUNDLED WITH
-   1.10.4
