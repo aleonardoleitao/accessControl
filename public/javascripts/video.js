@@ -45,7 +45,8 @@ function exibeVideo(imagem, urlServer, idVideo, width) {
 		poster: imagem,
 		source: urlServer,
 		parentId: idVideo,
-		width: width
+		width: width,
+		autoPlay: true
 	});
 
 }
