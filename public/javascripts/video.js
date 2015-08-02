@@ -1,10 +1,12 @@
-function MontaVideo(url, path, id, img, wth) {
+function MontaVideo(url, path, id, img, wth, tk, pf) {
 
 	pathVideo = encodeURIComponent(path);
 	idVideo = id;
 	imagem = img;
 	urlServer = url;
 	width = wth;
+	token = tk;
+	perfil = pf;
 
 	// Url com tratamento de encode
 	urlTratamento = urlServer + "/videos/" + pathVideo + ".json";
