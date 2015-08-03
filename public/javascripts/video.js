@@ -1,3 +1,6 @@
+document.write(unescape("%3Cscript src='https://mp4.dev.swingreal.com/javascripts/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='https://mp4.dev.swingreal.com/player/clappr.min.js' type='text/javascript'%3E%3C/script%3E"));
+
 function MontaVideo(url, path, id, img, wth, tk, pf) {
 
 	urlServer = url;
@@ -28,13 +31,14 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 				//urlServer = "http://clappr.io/" + data.path + ".mp4?token=" + data.token;
 				urlServer = urlServer + "/" + data.path + ".mp4?token=" + data.token;
 				comandos = '"' + imagem + '","' + urlServer + '","' + idVideo + '","' + width + '"';
-				div.append("<img style='cursor:pointer; height: 360px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
+				div.append("<img style='cursor:pointer; height: 395px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
 
 	        }
 	    });//termina o ajax
 	});
 }
 
+//480hx395w
 
 function exibeVideo(imagem, urlServer, idVideo, width) {
 	idVideo = "#" + idVideo;
@@ -46,7 +50,8 @@ function exibeVideo(imagem, urlServer, idVideo, width) {
 		source: urlServer,
 		parentId: idVideo,
 		width: width,
-		autoPlay: true
+		autoPlay: true,
+		hideMediaControl: false
 	});
 
 }
