@@ -416,3 +416,433 @@ Processing by VideoController#gera_video as JSON
   [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:26:11', 'video/3000/1000', 0, 'CoDCB2uwr2gYRe2OI5q3jF3UXWY&e=1438558571', '2015-08-02 23:26:11')
   [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
 Completed 200 OK in 7.5ms (Views: 0.3ms | ActiveRecord: 2.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:41:31 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (2.3ms)
+Completed 200 OK in 86.3ms (Views: 84.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:41:32 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:41:32', 'video/3000/1000', 0, '1zrJwCqeyw-mOKCSlmT0xiUM61c&e=1438559492', '2015-08-02 23:41:32')
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 154.0ms (Views: 0.2ms | ActiveRecord: 114.5ms)
+
+
+Started GET "/video/3000/1000.mp4?token=1zrJwCqeyw-mOKCSlmT0xiUM61c&e=1438559492" for 127.0.0.1 at 2015-08-02 20:41:34 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"1zrJwCqeyw-mOKCSlmT0xiUM61c", "e"=>"1438559492", "caminho1"=>"3000", "caminho2"=>"1000"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 4.9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:41:34 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 5.8ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:41:37 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 6.8ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:41:37 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:41:37', 'video/3000/1000', 0, 'yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497', '2015-08-02 23:41:37')[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Completed 200 OK in 5.0ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:43:24 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+Completed 500 Internal Server Error in 6.1ms
+
+LoadError (cannot load such file -- ruby-debug):
+  app/controllers/video_controller.rb:15:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.8ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:44:14 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 2.7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:44:16 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 2.9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:48:14 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-02 23:48:14' WHERE `videos`.`id` = 140[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 113.5ms (ActiveRecord: 57.9ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:50:11 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497' LIMIT 1[0m
+Completed 500 Internal Server Error in 66.1ms
+
+NoMethodError (undefined method `render_template' for #<VideoController:0x00000101f299a8>):
+  app/controllers/video_controller.rb:28:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.5ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:50:12 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497' LIMIT 1
+Completed 500 Internal Server Error in 5.3ms
+
+NoMethodError (undefined method `render_template' for #<VideoController:0x0000010575eda0>):
+  app/controllers/video_controller.rb:28:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:50:39 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497' LIMIT 1[0m
+Completed 500 Internal Server Error in 91.0ms
+
+NoMethodError (undefined method `render_template' for #<VideoController:0x000001080bdef8>):
+  app/controllers/video_controller.rb:28:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (39.8ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (48.6ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:51:17 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.2ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497' LIMIT 1
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/404.html (0.4ms)
+Completed 403 Forbidden in 120.2ms (Views: 39.3ms | ActiveRecord: 71.7ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:52:12 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497' LIMIT 1[0m
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.3ms)
+Completed 403 Forbidden in 68.6ms (Views: 2.8ms | ActiveRecord: 55.9ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:52:14 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497' LIMIT 1
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 5.2ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497" for 127.0.0.1 at 2015-08-02 20:52:20 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"yEgpj2Llbn0QAEyeDZIvl-_cVck", "e"=>"1438559497", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'yEgpj2Llbn0QAEyeDZIvl-_cVck&e=1438559497' LIMIT 1[0m
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 5.7ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:52:26 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 8.9ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:52:27 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:52:27', 'video/3000/1000', 0, 'LtLQND1XMmScBdXcFRoylwqs2Ws&e=1438560147', '2015-08-02 23:52:27')[0m
+  [1m[35m (46.2ms)[0m  COMMIT
+Completed 200 OK in 51.8ms (Views: 0.2ms | ActiveRecord: 46.6ms)
+
+
+Started GET "/video/3000/1000.mp4?token=LtLQND1XMmScBdXcFRoylwqs2Ws&e=1438560147" for 127.0.0.1 at 2015-08-02 20:52:29 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"LtLQND1XMmScBdXcFRoylwqs2Ws", "e"=>"1438560147", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"LtLQND1XMmScBdXcFRoylwqs2Ws", "e"=>"1438560147", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'LtLQND1XMmScBdXcFRoylwqs2Ws&e=1438560147' LIMIT 1[0m
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 5.6ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:52:42 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 7.5ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:52:43 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:52:43', 'video/3000/1000', 0, 'd-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163', '2015-08-02 23:52:43')[0m
+  [1m[35m (49.7ms)[0m  COMMIT
+Completed 200 OK in 54.8ms (Views: 0.2ms | ActiveRecord: 50.1ms)
+
+
+Started GET "/video/3000/1000.mp4?token=d-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163" for 127.0.0.1 at 2015-08-02 20:53:03 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'd-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163' LIMIT 1[0m
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 6.4ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/video/3000/1000.mp4?token=d-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163" for 127.0.0.1 at 2015-08-02 20:53:54 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.5ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'd-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163' LIMIT 1
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.1ms)
+Completed 403 Forbidden in 8.0ms (Views: 2.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/video/3000/1000.mp4?token=d-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163" for 127.0.0.1 at 2015-08-02 20:54:44 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'd-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163' LIMIT 1[0m
+Completed 500 Internal Server Error in 13.6ms
+
+TypeError (no implicit conversion of false into String):
+  app/controllers/video_controller.rb:20:in `+'
+  app/controllers/video_controller.rb:20:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=d-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163" for 127.0.0.1 at 2015-08-02 20:54:55 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'd-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163' LIMIT 1
+false
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 155.9ms (Views: 2.2ms | ActiveRecord: 144.8ms)
+
+
+Started GET "/video/3000/1000.mp4?token=d-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163" for 127.0.0.1 at 2015-08-02 20:55:44 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'd-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163' LIMIT 1[0m
+false
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-02 23:55:44' WHERE `videos`.`id` = 142[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 71.0ms (ActiveRecord: 59.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=d-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163" for 127.0.0.1 at 2015-08-02 20:55:54 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"d-670ad-EEWOPUBtl37O4RbNh6c", "e"=>"1438560163", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'd-670ad-EEWOPUBtl37O4RbNh6c&e=1438560163' LIMIT 1[0m
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 5.8ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:55:58 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 5.6ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:55:58 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:55:58', 'video/3000/1000', 0, 'lEz0Dxu_ENg0zn-zTHedb-eTCWg&e=1438560358', '2015-08-02 23:55:58')[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+Completed 200 OK in 7.4ms (Views: 0.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/video/3000/1000.mp4?token=lEz0Dxu_ENg0zn-zTHedb-eTCWg&e=1438560358" for 127.0.0.1 at 2015-08-02 20:56:10 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"lEz0Dxu_ENg0zn-zTHedb-eTCWg", "e"=>"1438560358", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"lEz0Dxu_ENg0zn-zTHedb-eTCWg", "e"=>"1438560358", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'lEz0Dxu_ENg0zn-zTHedb-eTCWg&e=1438560358' LIMIT 1[0m
+false
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-02 23:56:10' WHERE `videos`.`id` = 143[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 8.3ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:56:11 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 6.3ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/video/3000/1000.mp4?token=lEz0Dxu_ENg0zn-zTHedb-eTCWg&e=1438560358" for 127.0.0.1 at 2015-08-02 20:56:25 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"lEz0Dxu_ENg0zn-zTHedb-eTCWg", "e"=>"1438560358", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"lEz0Dxu_ENg0zn-zTHedb-eTCWg", "e"=>"1438560358", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'lEz0Dxu_ENg0zn-zTHedb-eTCWg&e=1438560358' LIMIT 1[0m
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 6.9ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/video/3000/1000.mp4" for 127.0.0.1 at 2015-08-02 20:56:28 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"caminho1"=>"3000", "caminho2"=>"1000"}
+{"controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+Completed 500 Internal Server Error in 2.4ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/video_controller.rb:17:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:56:57 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.0ms)
+Completed 200 OK in 6.0ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:56:57 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:56:57', 'video/3000/1000', 0, 'NNGcVBwivAxIeRgeKfxMRkWP2qo&e=1438560417', '2015-08-02 23:56:57')[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Completed 200 OK in 5.4ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=NNGcVBwivAxIeRgeKfxMRkWP2qo&e=1438560417" for 127.0.0.1 at 2015-08-02 20:57:00 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"NNGcVBwivAxIeRgeKfxMRkWP2qo", "e"=>"1438560417", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"NNGcVBwivAxIeRgeKfxMRkWP2qo", "e"=>"1438560417", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'NNGcVBwivAxIeRgeKfxMRkWP2qo&e=1438560417' LIMIT 1[0m
+false
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-02 23:57:00' WHERE `videos`.`id` = 144[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 5.6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=NNGcVBwivAxIeRgeKfxMRkWP2qo&e=1438560417" for 127.0.0.1 at 2015-08-02 20:57:00 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"NNGcVBwivAxIeRgeKfxMRkWP2qo", "e"=>"1438560417", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"NNGcVBwivAxIeRgeKfxMRkWP2qo", "e"=>"1438560417", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'NNGcVBwivAxIeRgeKfxMRkWP2qo&e=1438560417' LIMIT 1[0m
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 5.2ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:57:50 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 6.7ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-02 20:57:51 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-02 23:57:51', 'video/3000/1000', 0, 'RxJo0Kl6MzpAF-8QA6IhhYM4pVU&e=1438560471', '2015-08-02 23:57:51')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+Completed 200 OK in 6.1ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=RxJo0Kl6MzpAF-8QA6IhhYM4pVU&e=1438560471" for 127.0.0.1 at 2015-08-02 20:57:57 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"RxJo0Kl6MzpAF-8QA6IhhYM4pVU", "e"=>"1438560471", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"RxJo0Kl6MzpAF-8QA6IhhYM4pVU", "e"=>"1438560471", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'RxJo0Kl6MzpAF-8QA6IhhYM4pVU&e=1438560471' LIMIT 1[0m
+false
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-02 23:57:57' WHERE `videos`.`id` = 145[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 10.1ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-02 20:57:58 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (0.1ms)
+Completed 200 OK in 9.3ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/video/3000/1000.mp4?token=RxJo0Kl6MzpAF-8QA6IhhYM4pVU&e=1438560471" for 127.0.0.1 at 2015-08-02 20:58:15 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"RxJo0Kl6MzpAF-8QA6IhhYM4pVU", "e"=>"1438560471", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"RxJo0Kl6MzpAF-8QA6IhhYM4pVU", "e"=>"1438560471", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'RxJo0Kl6MzpAF-8QA6IhhYM4pVU&e=1438560471' LIMIT 1[0m
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.1ms)
+Completed 403 Forbidden in 7.4ms (Views: 3.4ms | ActiveRecord: 0.3ms)

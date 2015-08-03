@@ -12,9 +12,24 @@ class VideoController < ApplicationController
   end
 
   def exibe_video
-    respond_to do |format|
-      format.mp4 { send_file File.join(["/mnt/Vids", params[:caminho1], params[:caminho2] + ".mp4"]), :type => 'video/mp4', :disposition => :inline, :stream => true, :buffer_size  =>  4096 }
+    Rails.logger.info params
+
+    token = params[:token] + "&e=" + params[:e]
+    video = Video.find_by_token(token)
+
+    Rails.logger.info video.status
+    if !video.status
+      
+      video.status = true
+      video.save
+
+      respond_to do |format|
+        format.mp4 { send_file File.join(["/mnt/Vids", params[:caminho1], params[:caminho2] + ".mp4"]), :type => 'video/mp4', :disposition => :inline, :stream => true, :buffer_size  =>  4096 }
+      end
+    else
+        render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
     end
+
   end
 
 end

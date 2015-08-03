@@ -4,4 +4,8 @@ class HomeController < ApplicationController
     render 'index'
   end
 
+  def dev
+    render 'dev'
+  end
+
 end
