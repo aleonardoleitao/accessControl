@@ -1,6 +1,3 @@
-document.write(unescape("%3Cscript src='https://mp4.dev.swingreal.com/javascripts/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
-document.write(unescape("%3Cscript src='https://mp4.dev.swingreal.com/player/clappr.min.js' type='text/javascript'%3E%3C/script%3E"));
-
 function MontaVideo(url, path, id, img, wth, tk, pf) {
 
 	urlServer = url;

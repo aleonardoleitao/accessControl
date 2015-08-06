@@ -1241,3 +1241,43 @@ Started GET "/dev" for 127.0.0.1 at 2015-08-02 22:43:54 -0300
 Processing by HomeController#dev as HTML
   Rendered home/dev.html.erb (0.1ms)
 Completed 200 OK in 6.5ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-03 00:28:18 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (1.0ms)
+Completed 200 OK in 57.8ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-03 00:28:20 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (36.8ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-03 03:28:20', 'video/3000/1000', 0, 'wmEh4v-WAo00JzxKW2h6EmifVbw&e=1438573100', '2015-08-03 03:28:20')
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 55.9ms (Views: 0.7ms | ActiveRecord: 44.1ms)
+
+
+Started GET "/video/3000/1000.mp4?token=wmEh4v-WAo00JzxKW2h6EmifVbw&e=1438573100" for 127.0.0.1 at 2015-08-03 00:28:23 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"wmEh4v-WAo00JzxKW2h6EmifVbw", "e"=>"1438573100", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"wmEh4v-WAo00JzxKW2h6EmifVbw", "e"=>"1438573100", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'wmEh4v-WAo00JzxKW2h6EmifVbw&e=1438573100' LIMIT 1
+false
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-03 03:28:23' WHERE `videos`.`id` = 159
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.5ms)
+Completed 200 OK in 10.8ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-03 00:28:28 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 13.6ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-03 00:29:05 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 16.1ms (Views: 10.9ms | ActiveRecord: 0.0ms)
