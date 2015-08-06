@@ -42,6 +42,7 @@ function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width) {
 	idVideo = "#" + idVideo;
 	div = $(idVideo);
 	div.html("");
+	urlServer = urlServer + "/javascripts/player/"
 
 	var player = new Clappr.Player({
 		poster: imagem,
