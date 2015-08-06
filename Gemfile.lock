@@ -110,6 +110,7 @@ GEM
       activesupport (>= 3.0.0)
     kgio (2.8.1)
     libv8 (3.16.14.7)
+    magick_title (0.2.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -295,6 +296,7 @@ DEPENDENCIES
   foreman
   jquery-rails
   kaminari (= 0.14.1)
+  magick_title (>= 0.2.0)
   mail_form
   moiper
   mysql2 (= 0.3.13)
