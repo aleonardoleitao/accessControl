@@ -27,8 +27,8 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 	        success : function(data){
 
 				//urlServer = "http://clappr.io/" + data.path + ".mp4?token=" + data.token;
-				urlCompleta = urlServer + "/" + data.path + ".mp4?token=" + data.token;
-				comandos = '"' + urlServer + '","' + imagem + '","' + urlCompleta + '","' + idVideo + '","' + width + '"';
+				urlCompleta = urlServer + "/" + data.path + ".mp4?token=" + data.token + "&tk=" + token;
+				comandos = '"' + urlServer + '","' + imagem + '","' + urlCompleta + '","' + idVideo + '","' + width + '","' + perfil + '"';
 				div.append("<img style='cursor:pointer; height: 395px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
 
 	        }
@@ -38,7 +38,7 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 
 //480hx395w
 
-function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width) {
+function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 	idVideo = "#" + idVideo;
 	div = $(idVideo);
 	div.html("");

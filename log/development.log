@@ -1281,3 +1281,1087 @@ Started GET "/dev" for 127.0.0.1 at 2015-08-03 00:29:05 -0300
 Processing by HomeController#dev as HTML
   Rendered home/dev.html.erb (0.1ms)
 Completed 200 OK in 16.1ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-06 01:33:07 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb (15.9ms)
+Completed 200 OK in 62.1ms (Views: 59.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:33:24 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.3ms)
+Completed 200 OK in 78.9ms (Views: 76.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 01:33:25 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 04:33:25', 'video/3000/1000', 0, '5A_ZwUlmwO5rouOiRbXn4wQTemw&e=1438836205', '2015-08-06 04:33:25')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 152.1ms (Views: 0.2ms | ActiveRecord: 89.4ms)
+
+
+Started GET "/video/3000/1000.mp4?token=5A_ZwUlmwO5rouOiRbXn4wQTemw&e=1438836205" for 127.0.0.1 at 2015-08-06 01:33:28 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"5A_ZwUlmwO5rouOiRbXn4wQTemw", "e"=>"1438836205", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"5A_ZwUlmwO5rouOiRbXn4wQTemw", "e"=>"1438836205", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = '5A_ZwUlmwO5rouOiRbXn4wQTemw&e=1438836205' LIMIT 1
+false
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 04:33:29' WHERE `videos`.`id` = 160
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (15.1ms)
+Completed 200 OK in 225.8ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:33:30 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 7.1ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:33:55 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.9ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 01:33:56 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 04:33:56', 'video/3000/1000', 0, '5afQECURKrutrm6hbs3hINqV_6c&e=1438836236', '2015-08-06 04:33:56')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 200 OK in 70.9ms (Views: 0.3ms | ActiveRecord: 58.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=5afQECURKrutrm6hbs3hINqV_6c&e=1438836236" for 127.0.0.1 at 2015-08-06 01:33:58 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"5afQECURKrutrm6hbs3hINqV_6c", "e"=>"1438836236", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"5afQECURKrutrm6hbs3hINqV_6c", "e"=>"1438836236", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.5ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = '5afQECURKrutrm6hbs3hINqV_6c&e=1438836236' LIMIT 1[0m
+false
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 04:33:58' WHERE `videos`.`id` = 161[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 8.9ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:34:00 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.6ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:34:20 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 6.4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 01:34:21 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 04:34:21', 'video/3000/1000', 0, 'qn_f1tH6ScAZ0XZZHpF-PW4mcwI&e=1438836261', '2015-08-06 04:34:21')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 78.6ms (Views: 0.2ms | ActiveRecord: 62.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=qn_f1tH6ScAZ0XZZHpF-PW4mcwI&e=1438836261" for 127.0.0.1 at 2015-08-06 01:34:23 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"qn_f1tH6ScAZ0XZZHpF-PW4mcwI", "e"=>"1438836261", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"qn_f1tH6ScAZ0XZZHpF-PW4mcwI", "e"=>"1438836261", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'qn_f1tH6ScAZ0XZZHpF-PW4mcwI&e=1438836261' LIMIT 1
+false
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 04:34:23' WHERE `videos`.`id` = 162
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 8.4ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:34:24 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.3ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:34:39 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (2.3ms)
+Completed 200 OK in 17.2ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 01:34:39 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 04:34:39', 'video/3000/1000', 0, 'J47ZYLAPz8BcRYa-Mv8ZhVr9CQM&e=1438836279', '2015-08-06 04:34:39')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 81.5ms (Views: 0.3ms | ActiveRecord: 58.0ms)
+
+
+Started GET "/video/3000/1000.mp4?token=J47ZYLAPz8BcRYa-Mv8ZhVr9CQM&e=1438836279" for 127.0.0.1 at 2015-08-06 01:34:41 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"J47ZYLAPz8BcRYa-Mv8ZhVr9CQM", "e"=>"1438836279", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"J47ZYLAPz8BcRYa-Mv8ZhVr9CQM", "e"=>"1438836279", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'J47ZYLAPz8BcRYa-Mv8ZhVr9CQM&e=1438836279' LIMIT 1
+false
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 04:34:41' WHERE `videos`.`id` = 163
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.5ms)
+Completed 200 OK in 14.9ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:34:43 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.6ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:35:01 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 6.8ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 01:35:02 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 04:35:02', 'video/3000/1000', 0, '6MEMzaxFxrSAHdjnn0ju3KwJF3c&e=1438836302', '2015-08-06 04:35:02')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 200 OK in 63.3ms (Views: 0.2ms | ActiveRecord: 50.8ms)
+
+
+Started GET "/video/3000/1000.mp4?token=6MEMzaxFxrSAHdjnn0ju3KwJF3c&e=1438836302" for 127.0.0.1 at 2015-08-06 01:35:05 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"6MEMzaxFxrSAHdjnn0ju3KwJF3c", "e"=>"1438836302", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"6MEMzaxFxrSAHdjnn0ju3KwJF3c", "e"=>"1438836302", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = '6MEMzaxFxrSAHdjnn0ju3KwJF3c&e=1438836302' LIMIT 1[0m
+false
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 04:35:05' WHERE `videos`.`id` = 164[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 10.4ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:35:06 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.3ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:35:23 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 7.2ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 01:35:24 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 04:35:24', 'video/3000/1000', 0, 'VQBhvHXsG9Qp5ZJ5EU2upJev9yI&e=1438836324', '2015-08-06 04:35:24')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 71.0ms (Views: 0.3ms | ActiveRecord: 56.5ms)
+
+
+Started GET "/video/3000/1000.mp4?token=VQBhvHXsG9Qp5ZJ5EU2upJev9yI&e=1438836324" for 127.0.0.1 at 2015-08-06 01:35:26 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"VQBhvHXsG9Qp5ZJ5EU2upJev9yI", "e"=>"1438836324", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"VQBhvHXsG9Qp5ZJ5EU2upJev9yI", "e"=>"1438836324", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'VQBhvHXsG9Qp5ZJ5EU2upJev9yI&e=1438836324' LIMIT 1
+false
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 04:35:26' WHERE `videos`.`id` = 165
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 10.2ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:35:28 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.6ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:35:40 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (1.7ms)
+Completed 200 OK in 14.3ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 01:35:41 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 04:35:41', 'video/3000/1000', 0, 'OfgzA0_NDhsiPeyc72yIqOtLypw&e=1438836341', '2015-08-06 04:35:41')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 68.5ms (Views: 0.2ms | ActiveRecord: 50.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=OfgzA0_NDhsiPeyc72yIqOtLypw&e=1438836341" for 127.0.0.1 at 2015-08-06 01:35:43 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"OfgzA0_NDhsiPeyc72yIqOtLypw", "e"=>"1438836341", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"OfgzA0_NDhsiPeyc72yIqOtLypw", "e"=>"1438836341", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'OfgzA0_NDhsiPeyc72yIqOtLypw&e=1438836341' LIMIT 1
+false
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 04:35:43' WHERE `videos`.`id` = 166
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 16.1ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 01:35:44 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 8.5ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/video/3000/1000.mp4?token=OfgzA0_NDhsiPeyc72yIqOtLypw&e=1438836341" for 127.0.0.1 at 2015-08-06 02:06:09 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"OfgzA0_NDhsiPeyc72yIqOtLypw", "e"=>"1438836341", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"OfgzA0_NDhsiPeyc72yIqOtLypw", "e"=>"1438836341", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'OfgzA0_NDhsiPeyc72yIqOtLypw&e=1438836341' LIMIT 1
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.5ms)
+Completed 403 Forbidden in 79.1ms (Views: 15.6ms | ActiveRecord: 49.4ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:06:12 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.7ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json?tk=" for 127.0.0.1 at 2015-08-06 02:06:13 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"tk"=>"", "caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 05:06:13', 'video/3000/1000', 0, '41lGd3EmIsF7AdaPAAX0sTN_v5k&e=1438838173', '2015-08-06 05:06:13')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 9.0ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/video/3000/1000.mp4?token=41lGd3EmIsF7AdaPAAX0sTN_v5k&e=1438838173" for 127.0.0.1 at 2015-08-06 02:06:16 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"41lGd3EmIsF7AdaPAAX0sTN_v5k", "e"=>"1438838173", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"41lGd3EmIsF7AdaPAAX0sTN_v5k", "e"=>"1438838173", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.5ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = '41lGd3EmIsF7AdaPAAX0sTN_v5k&e=1438838173' LIMIT 1
+false
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 05:06:16' WHERE `videos`.`id` = 167
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 9.3ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:06:17 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 8.5ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:06:22 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 6.8ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json?tk=" for 127.0.0.1 at 2015-08-06 02:06:23 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"tk"=>"", "caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 05:06:23', 'video/3000/1000', 0, 'mFWM2s-El35Jrd3T3M-ZuWMCc8k&e=1438838183', '2015-08-06 05:06:23')[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Completed 200 OK in 7.4ms (Views: 0.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/video/3000/1000.mp4?token=mFWM2s-El35Jrd3T3M-ZuWMCc8k&e=1438838183" for 127.0.0.1 at 2015-08-06 02:06:30 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"mFWM2s-El35Jrd3T3M-ZuWMCc8k", "e"=>"1438838183", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"mFWM2s-El35Jrd3T3M-ZuWMCc8k", "e"=>"1438838183", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'mFWM2s-El35Jrd3T3M-ZuWMCc8k&e=1438838183' LIMIT 1[0m
+false
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 05:06:30' WHERE `videos`.`id` = 168[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 7.6ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:06:32 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 9.2ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:10:09 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 8.3ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 02:10:10 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 05:10:10', 'video/3000/1000', 0, 'pcp28C5W1-UWPFAGZjX90DQPFrs&e=1438838410', '2015-08-06 05:10:10')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 8.7ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/video/3000/1000.mp4?token=pcp28C5W1-UWPFAGZjX90DQPFrs&e=1438838410&tk=" for 127.0.0.1 at 2015-08-06 02:10:13 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"pcp28C5W1-UWPFAGZjX90DQPFrs", "e"=>"1438838410", "tk"=>"", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"pcp28C5W1-UWPFAGZjX90DQPFrs", "e"=>"1438838410", "tk"=>"", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'pcp28C5W1-UWPFAGZjX90DQPFrs&e=1438838410' LIMIT 1
+false
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 05:10:13' WHERE `videos`.`id` = 169
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 9.9ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:10:15 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 6.2ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:10:56 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.3ms)
+Completed 200 OK in 5.4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 02:10:57 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 05:10:57', 'video/3000/1000', 0, 'mfKdRAdcVSWBZl1KEOjHaYgY3QQ&e=1438838457', '2015-08-06 05:10:57')[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Completed 200 OK in 9.0ms (Views: 0.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/video/3000/1000.mp4?token=mfKdRAdcVSWBZl1KEOjHaYgY3QQ&e=1438838457&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:11:00 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"mfKdRAdcVSWBZl1KEOjHaYgY3QQ", "e"=>"1438838457", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"mfKdRAdcVSWBZl1KEOjHaYgY3QQ", "e"=>"1438838457", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'mfKdRAdcVSWBZl1KEOjHaYgY3QQ&e=1438838457' LIMIT 1[0m
+false
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 05:11:00' WHERE `videos`.`id` = 170[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 7.7ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:11:02 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 5.9ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:12:36 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.7ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 02:12:36 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 05:12:36', 'video/3000/1000', 0, 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556', '2015-08-06 05:12:36')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 68.1ms (Views: 0.3ms | ActiveRecord: 55.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:12:39 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.5ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1
+Completed 500 Internal Server Error in 7.3ms
+
+URI::InvalidURIError (bad URI(is not URI?): http://ws.conecte.us/index.asp?id=14&acao=auth_mp4&token=02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}):
+  app/controllers/video_controller.rb:24:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:13:27 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1[0m
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<status>1</status>
+
+false
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 05:13:27' WHERE `videos`.`id` = 171[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 224.8ms (ActiveRecord: 51.7ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:13:48 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1[0m
+Completed 500 Internal Server Error in 167.7ms
+
+URI::InvalidURIError (bad URI(is not URI?): http://ws.conecte.us/index.asp?id=14&acao=auth_mp4&token=02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}):
+  app/controllers/video_controller.rb:24:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.6ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:14:46 -0300
+
+SyntaxError (/Users/novasmidias/Desenvolvimento/Pessoal/ruby/accessControl_master/app/controllers/video_controller.rb:26: syntax error, unexpected tCONSTANT, expecting ')'
+    Rails.logger.info xml
+         ^):
+  activesupport (3.2.15) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  rack-pjax (0.7.0) lib/rack/pjax.rb:12:in `call'
+  client_side_validations (3.2.6) lib/client_side_validations/middleware.rb:17:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/head.rb:14:in `call'
+  remotipart (1.2.1) lib/remotipart/middleware.rb:27:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.15) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.15) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:405:in `_run__2519656042436738154__call__4210118126871449319__callbacks'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.15) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.15) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.15) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.15) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.15) lib/rails/engine.rb:484:in `call'
+  railties (3.2.15) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.15) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `catch'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.15) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.15) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.15) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.15) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.8ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:14:48 -0300
+
+SyntaxError (/Users/novasmidias/Desenvolvimento/Pessoal/ruby/accessControl_master/app/controllers/video_controller.rb:26: syntax error, unexpected tCONSTANT, expecting ')'
+    Rails.logger.info xml
+         ^):
+  activesupport (3.2.15) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  rack-pjax (0.7.0) lib/rack/pjax.rb:12:in `call'
+  client_side_validations (3.2.6) lib/client_side_validations/middleware.rb:17:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/head.rb:14:in `call'
+  remotipart (1.2.1) lib/remotipart/middleware.rb:27:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.15) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.15) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:405:in `_run__2519656042436738154__call__4210118126871449319__callbacks'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.15) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.15) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.15) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.15) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.15) lib/rails/engine.rb:484:in `call'
+  railties (3.2.15) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.15) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `catch'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.15) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.15) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.15) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.15) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.9ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:15:20 -0300
+
+SyntaxError (/Users/novasmidias/Desenvolvimento/Pessoal/ruby/accessControl_master/app/controllers/video_controller.rb:28: syntax error, unexpected tCONSTANT, expecting ')'
+    Rails.logger.info video.status
+         ^):
+  activesupport (3.2.15) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  rack-pjax (0.7.0) lib/rack/pjax.rb:12:in `call'
+  client_side_validations (3.2.6) lib/client_side_validations/middleware.rb:17:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/head.rb:14:in `call'
+  remotipart (1.2.1) lib/remotipart/middleware.rb:27:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.15) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.15) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:405:in `_run__2519656042436738154__call__4210118126871449319__callbacks'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.15) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.15) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.15) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.15) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.15) lib/rails/engine.rb:484:in `call'
+  railties (3.2.15) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.15) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `catch'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.15) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.15) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.15) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.15) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.6ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:15:22 -0300
+
+SyntaxError (/Users/novasmidias/Desenvolvimento/Pessoal/ruby/accessControl_master/app/controllers/video_controller.rb:28: syntax error, unexpected tCONSTANT, expecting ')'
+    Rails.logger.info video.status
+         ^):
+  activesupport (3.2.15) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.15) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.15) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.15) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  rack-pjax (0.7.0) lib/rack/pjax.rb:12:in `call'
+  client_side_validations (3.2.6) lib/client_side_validations/middleware.rb:17:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/head.rb:14:in `call'
+  remotipart (1.2.1) lib/remotipart/middleware.rb:27:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.15) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.15) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:405:in `_run__2519656042436738154__call__4210118126871449319__callbacks'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.15) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.15) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.15) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.15) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.15) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.15) lib/rails/engine.rb:484:in `call'
+  railties (3.2.15) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.15) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `catch'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.15) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.15) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.15) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.15) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.7ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:15:37 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 60.7ms (Views: 2.4ms | ActiveRecord: 48.5ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:15:50 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1[0m
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 119.0ms (Views: 2.3ms | ActiveRecord: 51.9ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:15:58 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<status>1</status>
+
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 74.2ms (Views: 2.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:16:00 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1[0m
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<status>1</status>
+
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 61.7ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:16:01 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<status>1</status>
+
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.1ms)
+Completed 403 Forbidden in 82.5ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:18:51 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1[0m
+1
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<status>1</status>
+
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 336.5ms (Views: 2.2ms | ActiveRecord: 54.6ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:19:10 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1
+Item - 1
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<status>1</status>
+
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 119.5ms (Views: 2.7ms | ActiveRecord: 49.7ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:20:14 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1[0m
+Resultado = 1
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.1ms)
+Completed 403 Forbidden in 130.4ms (Views: 3.6ms | ActiveRecord: 56.8ms)
+
+
+Started GET "/video/3000/1000.mp4?token=n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:22:10 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"n3LEJ22Lw69B781qFVQpbWWe_xM", "e"=>"1438838556", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'n3LEJ22Lw69B781qFVQpbWWe_xM&e=1438838556' LIMIT 1
+Resultado = 1
+true
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.0ms)
+Completed 403 Forbidden in 163.0ms (Views: 2.3ms | ActiveRecord: 48.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:22:58 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 02:22:58 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 05:22:58', 'video/3000/1000', 0, 'XgXE68x2DIxB5b05Xag3ZlLO4CM&e=1438839178', '2015-08-06 05:22:58')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 69.3ms (Views: 0.2ms | ActiveRecord: 56.8ms)
+
+
+Started GET "/video/3000/1000.mp4?token=XgXE68x2DIxB5b05Xag3ZlLO4CM&e=1438839178&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:23:03 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"XgXE68x2DIxB5b05Xag3ZlLO4CM", "e"=>"1438839178", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"XgXE68x2DIxB5b05Xag3ZlLO4CM", "e"=>"1438839178", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'XgXE68x2DIxB5b05Xag3ZlLO4CM&e=1438839178' LIMIT 1
+Resultado = 1
+false
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.1ms)
+Completed 403 Forbidden in 111.2ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:23:24 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 02:23:25 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 05:23:25', 'video/3000/1000', 0, 'Vc1FoTOIMFFKGo-VLqE6POrpnzk&e=1438839205', '2015-08-06 05:23:25')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 68.7ms (Views: 0.3ms | ActiveRecord: 54.6ms)
+
+
+Started GET "/video/3000/1000.mp4?token=Vc1FoTOIMFFKGo-VLqE6POrpnzk&e=1438839205&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:23:27 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"Vc1FoTOIMFFKGo-VLqE6POrpnzk", "e"=>"1438839205", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"Vc1FoTOIMFFKGo-VLqE6POrpnzk", "e"=>"1438839205", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'Vc1FoTOIMFFKGo-VLqE6POrpnzk&e=1438839205' LIMIT 1
+Resultado = 1
+false
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 05:23:28' WHERE `videos`.`id` = 173
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 226.3ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:23:29 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.7ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:23:44 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 8.1ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 02:23:45 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 05:23:45', 'video/3000/1000', 0, 'iO-Zu_apVLTBodctqY9FKdEDNEw&e=1438839225', '2015-08-06 05:23:45')[0m
+  [1m[35m (43.6ms)[0m  COMMIT
+Completed 200 OK in 109.4ms (Views: 0.3ms | ActiveRecord: 97.6ms)
+
+
+Started GET "/video/3000/1000.mp4?token=iO-Zu_apVLTBodctqY9FKdEDNEw&e=1438839225&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:23:48 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"iO-Zu_apVLTBodctqY9FKdEDNEw", "e"=>"1438839225", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"iO-Zu_apVLTBodctqY9FKdEDNEw", "e"=>"1438839225", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.6ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'iO-Zu_apVLTBodctqY9FKdEDNEw&e=1438839225' LIMIT 1[0m
+Resultado = 1
+false
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.1ms)
+Completed 403 Forbidden in 66.1ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:25:12 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 02:25:13 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 05:25:13', 'video/3000/1000', 0, 'YVeZ-De3VbiIZhJX3bKVm1jY0hA&e=1438839313', '2015-08-06 05:25:13')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 200 OK in 70.2ms (Views: 0.3ms | ActiveRecord: 58.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=YVeZ-De3VbiIZhJX3bKVm1jY0hA&e=1438839313&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:25:14 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"YVeZ-De3VbiIZhJX3bKVm1jY0hA", "e"=>"1438839313", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"YVeZ-De3VbiIZhJX3bKVm1jY0hA", "e"=>"1438839313", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'YVeZ-De3VbiIZhJX3bKVm1jY0hA&e=1438839313' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 05:25:14' WHERE `videos`.`id` = 175[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 68.7ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:25:15 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 7.1ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 02:25:19 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 7.1ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 02:25:20 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 05:25:20', 'video/3000/1000', 0, 'ax_DBLu1DQrngHIqYXOIXUcVVXU&e=1438839320', '2015-08-06 05:25:20')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 61.3ms (Views: 0.2ms | ActiveRecord: 49.8ms)
+
+
+Started GET "/video/3000/1000.mp4?token=ax_DBLu1DQrngHIqYXOIXUcVVXU&e=1438839320&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 02:25:23 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"ax_DBLu1DQrngHIqYXOIXUcVVXU", "e"=>"1438839320", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"ax_DBLu1DQrngHIqYXOIXUcVVXU", "e"=>"1438839320", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'ax_DBLu1DQrngHIqYXOIXUcVVXU&e=1438839320' LIMIT 1
+DEPRECATION WARNING: Passing the format in the template name is deprecated. Please pass render with :formats => [:html] instead. (called from realtime at /Users/novasmidias/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296)
+  Rendered public/403.html (0.1ms)
+Completed 403 Forbidden in 111.2ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+Connecting to database specified by database.yml

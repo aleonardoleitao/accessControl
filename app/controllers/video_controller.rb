@@ -1,3 +1,6 @@
+require 'nokogiri'
+require 'open-uri'
+
 class VideoController < ApplicationController
   
   def gera_video
@@ -16,9 +19,15 @@ class VideoController < ApplicationController
 
     token = params[:token] + "&e=" + params[:e]
     video = Video.find_by_token(token)
+    tk = params[:tk]
 
-    Rails.logger.info video.status
-    if !video.status
+    resultado = 1
+    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=14&acao=auth_mp4&token=' + URI::encode(tk)))
+    itens = xml.search('status').map do |item|
+      resultado = item.text
+    end
+
+    if !video.status && !(resultado == '1')
       
       video.status = true
       video.save
