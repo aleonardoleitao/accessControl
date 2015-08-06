@@ -2365,3 +2365,388 @@ DEPRECATION WARNING: Passing the format in the template name is deprecated. Plea
   Rendered public/403.html (0.1ms)
 Completed 403 Forbidden in 111.2ms (Views: 3.6ms | ActiveRecord: 0.3ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 09:54:58 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (28.3ms)
+Completed 200 OK in 73.0ms (Views: 70.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 09:54:59 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 12:54:59', 'video/3000/1000', 0, 'pZPDEoKeLFHBIgENC4c9i3PlO0I&e=1438866299', '2015-08-06 12:54:59')
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 151.9ms (Views: 0.2ms | ActiveRecord: 89.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=pZPDEoKeLFHBIgENC4c9i3PlO0I&e=1438866299&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 09:55:02 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"pZPDEoKeLFHBIgENC4c9i3PlO0I", "e"=>"1438866299", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"pZPDEoKeLFHBIgENC4c9i3PlO0I", "e"=>"1438866299", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.5ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'pZPDEoKeLFHBIgENC4c9i3PlO0I&e=1438866299' LIMIT 1
+Completed 500 Internal Server Error in 87682.4ms
+
+Errno::ECONNRESET (Connection reset by peer):
+  app/controllers/video_controller.rb:25:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.4ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 09:56:29 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 6.1ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 09:56:30 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.6ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 09:57:07 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 6.8ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 09:57:07 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 12:57:07', 'video/3000/1000', 0, 'qnaiw4P2k6qcSMt60WJG-HYPKDM&e=1438866427', '2015-08-06 12:57:07')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 20.6ms (Views: 0.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/video/3000/1000.mp4?token=qnaiw4P2k6qcSMt60WJG-HYPKDM&e=1438866427&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 09:57:11 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"qnaiw4P2k6qcSMt60WJG-HYPKDM", "e"=>"1438866427", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"qnaiw4P2k6qcSMt60WJG-HYPKDM", "e"=>"1438866427", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'qnaiw4P2k6qcSMt60WJG-HYPKDM&e=1438866427' LIMIT 1
+Completed 500 Internal Server Error in 88182.7ms
+
+Errno::ECONNRESET (Connection reset by peer):
+  app/controllers/video_controller.rb:25:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (43.8ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (51.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 09:58:39 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 6.1ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 09:58:39 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 09:59:19 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 7.2ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 09:59:20 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 12:59:20', 'video/3000/1000', 0, 'nLxD6DdHYL7V2i8oq4qTTwKq5PQ&e=1438866560', '2015-08-06 12:59:20')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 9.8ms (Views: 0.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/video/3000/1000.mp4?token=nLxD6DdHYL7V2i8oq4qTTwKq5PQ&e=1438866560&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 09:59:24 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"nLxD6DdHYL7V2i8oq4qTTwKq5PQ", "e"=>"1438866560", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"nLxD6DdHYL7V2i8oq4qTTwKq5PQ", "e"=>"1438866560", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'nLxD6DdHYL7V2i8oq4qTTwKq5PQ&e=1438866560' LIMIT 1
+Completed 500 Internal Server Error in 82013.0ms
+
+Errno::ECONNRESET (Connection reset by peer):
+  app/controllers/video_controller.rb:25:in `exibe_video'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.1ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:01:58 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (1.6ms)
+Completed 200 OK in 13.9ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 10:01:58 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 13:01:59', 'video/3000/1000', 0, 'N-Wk_slYgjKmtuUA1b0QOWywh_k&e=1438866718', '2015-08-06 13:01:59')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 128.1ms (Views: 0.3ms | ActiveRecord: 108.7ms)
+
+
+Started GET "/video/3000/1000.mp4?token=N-Wk_slYgjKmtuUA1b0QOWywh_k&e=1438866718&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 10:02:02 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"N-Wk_slYgjKmtuUA1b0QOWywh_k", "e"=>"1438866718", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"N-Wk_slYgjKmtuUA1b0QOWywh_k", "e"=>"1438866718", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'N-Wk_slYgjKmtuUA1b0QOWywh_k&e=1438866718' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 13:03:03' WHERE `videos`.`id` = 180
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (22.7ms)
+Completed 200 OK in 60709.9ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:14:32 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 6.9ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 10:14:32 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 13:14:32', 'video/3000/1000', 0, 'cc71fg3XKX12szvviUOW4SFRD5U&e=1438867472', '2015-08-06 13:14:32')[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Completed 200 OK in 8.9ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/video/3000/1000.mp4?token=cc71fg3XKX12szvviUOW4SFRD5U&e=1438867472&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 10:14:37 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"cc71fg3XKX12szvviUOW4SFRD5U", "e"=>"1438867472", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"cc71fg3XKX12szvviUOW4SFRD5U", "e"=>"1438867472", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.5ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'cc71fg3XKX12szvviUOW4SFRD5U&e=1438867472' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 13:14:37' WHERE `videos`.`id` = 181[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 429.2ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:14:41 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 45.3ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:16:32 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 7.9ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 10:16:33 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 13:16:33', 'video/3000/1000', 0, 'tTOo6hugm9su_ZaefU769kfeyfE&e=1438867593', '2015-08-06 13:16:33')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 6.9ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=tTOo6hugm9su_ZaefU769kfeyfE&e=1438867593&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 10:16:34 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"tTOo6hugm9su_ZaefU769kfeyfE", "e"=>"1438867593", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"tTOo6hugm9su_ZaefU769kfeyfE", "e"=>"1438867593", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.6ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'tTOo6hugm9su_ZaefU769kfeyfE&e=1438867593' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 13:16:34' WHERE `videos`.`id` = 182
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 33.3ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:16:36 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 9.5ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:17:36 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 7.0ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 10:17:36 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 13:17:36', 'video/3000/1000', 0, 'DM_PHAP9mOpzB2gWI-lkgxTu77s&e=1438867656', '2015-08-06 13:17:36')[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Completed 200 OK in 7.3ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/video/3000/1000.mp4?token=DM_PHAP9mOpzB2gWI-lkgxTu77s&e=1438867656&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 10:17:40 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"DM_PHAP9mOpzB2gWI-lkgxTu77s", "e"=>"1438867656", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"DM_PHAP9mOpzB2gWI-lkgxTu77s", "e"=>"1438867656", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'DM_PHAP9mOpzB2gWI-lkgxTu77s&e=1438867656' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 13:17:40' WHERE `videos`.`id` = 183[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Completed 200 OK in 34.7ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:17:42 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 7.2ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:18:12 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.7ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 10:18:13 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 13:18:13', 'video/3000/1000', 0, 'D3S2B1It9YGagXo4uDWrBoJxEog&e=1438867693', '2015-08-06 13:18:13')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 8.3ms (Views: 0.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/video/3000/1000.mp4?token=D3S2B1It9YGagXo4uDWrBoJxEog&e=1438867693&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 10:18:15 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"D3S2B1It9YGagXo4uDWrBoJxEog", "e"=>"1438867693", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"D3S2B1It9YGagXo4uDWrBoJxEog", "e"=>"1438867693", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'D3S2B1It9YGagXo4uDWrBoJxEog&e=1438867693' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 13:18:15' WHERE `videos`.`id` = 184
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.5ms)
+Completed 200 OK in 37.5ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:18:17 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.5ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:19:53 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 5.6ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 10:19:53 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 13:19:53', 'video/3000/1000', 0, '2cx9AAh-ffiy39A5iEROWFvwP2k&e=1438867793', '2015-08-06 13:19:53')[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Completed 200 OK in 6.6ms (Views: 0.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/video/3000/1000.mp4?token=2cx9AAh-ffiy39A5iEROWFvwP2k&e=1438867793&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 10:19:55 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"2cx9AAh-ffiy39A5iEROWFvwP2k", "e"=>"1438867793", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"2cx9AAh-ffiy39A5iEROWFvwP2k", "e"=>"1438867793", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.5ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = '2cx9AAh-ffiy39A5iEROWFvwP2k&e=1438867793' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 13:19:55' WHERE `videos`.`id` = 185[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 53.9ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:20:51 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.1ms)
+Completed 200 OK in 8.7ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:21:27 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 6.2ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-06 10:21:27 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-06 13:21:27', 'video/3000/1000', 0, 'rFywPsGKtezwenbE35UOaDZHEA4&e=1438867887', '2015-08-06 13:21:27')
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 8.8ms (Views: 0.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/video/3000/1000.mp4?token=rFywPsGKtezwenbE35UOaDZHEA4&e=1438867887&tk=02082015211314%7B77B41119-C22B-4E96-9C37-A404061D11BD%7D" for 127.0.0.1 at 2015-08-06 10:21:29 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"rFywPsGKtezwenbE35UOaDZHEA4", "e"=>"1438867887", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "caminho1"=>"3000", "caminho2"=>"1000"}
+{"token"=>"rFywPsGKtezwenbE35UOaDZHEA4", "e"=>"1438867887", "tk"=>"02082015211314{77B41119-C22B-4E96-9C37-A404061D11BD}", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.3ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'rFywPsGKtezwenbE35UOaDZHEA4&e=1438867887' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-06 13:21:29' WHERE `videos`.`id` = 186
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Completed 200 OK in 44.2ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/AAAA" for 127.0.0.1 at 2015-08-06 10:21:29 -0300
+
+ActionController::RoutingError (No route matches [GET] "/AAAA"):
+  actionpack (3.2.15) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.15) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.15) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.15) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.15) lib/rails/engine.rb:484:in `call'
+  railties (3.2.15) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.15) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `catch'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.15) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.15) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.15) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.15) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-06 10:21:31 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (0.0ms)
+Completed 200 OK in 7.4ms (Views: 3.6ms | ActiveRecord: 0.0ms)

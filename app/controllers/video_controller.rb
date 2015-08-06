@@ -27,7 +27,7 @@ class VideoController < ApplicationController
       resultado = item.text
     end
 
-    if !video.status && !(resultado == '1')
+    if !video.status && !(resultado == '0')
       
       video.status = true
       video.save
