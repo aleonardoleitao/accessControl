@@ -1,6 +1,7 @@
 function MontaVideo(url, path, id, img, wth, tk, pf) {
 
 	urlServer = url;
+	urlCompleta = "";
 	pathVideo = encodeURIComponent(path);
 	idVideo = id;
 	imagem = img;
@@ -26,8 +27,8 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 	        success : function(data){
 
 				//urlServer = "http://clappr.io/" + data.path + ".mp4?token=" + data.token;
-				urlServer = urlServer + "/" + data.path + ".mp4?token=" + data.token;
-				comandos = '"' + imagem + '","' + urlServer + '","' + idVideo + '","' + width + '"';
+				urlCompleta = urlServer + "/" + data.path + ".mp4?token=" + data.token;
+				comandos = '"' + urlServer + '","' + imagem + '","' + urlCompleta + '","' + idVideo + '","' + width + '"';
 				div.append("<img style='cursor:pointer; height: 395px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
 
 	        }
@@ -37,18 +38,19 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 
 //480hx395w
 
-function exibeVideo(imagem, urlServer, idVideo, width) {
+function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width) {
 	idVideo = "#" + idVideo;
 	div = $(idVideo);
 	div.html("");
 
 	var player = new Clappr.Player({
 		poster: imagem,
-		source: urlServer,
+		source: urlCompleta,
 		parentId: idVideo,
 		width: width,
 		autoPlay: true,
-		hideMediaControl: false
+		hideMediaControl: false,
+		baseUrl: urlServer
 	});
 
 }
