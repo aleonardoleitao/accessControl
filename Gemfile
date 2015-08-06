@@ -21,7 +21,7 @@ gem 'jquery-rails'
 gem 'fancybox2-rails'
 gem 'rest-client'
 gem 'ruby-bitly'
-#gem 'magick_title', '>= 0.2.0'
+gem 'magick_title', '>= 0.2.0'
 gem 'client_side_validations'
 
 gem 'twitter_oauth'
