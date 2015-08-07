@@ -15,18 +15,20 @@ class VideoController < ApplicationController
   end
 
   def exibe_video
+    Rails.logger.info "Iniciando a consulta no exibe video"
     Rails.logger.info params
 
     token = params[:token] + "&e=" + params[:e]
     video = Video.find_by_token(token)
     tk = params[:tk]
-
+    perfil = params[:perfil]
     resultado = 1
-    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=14&acao=auth_mp4&token=' + URI::encode(tk)))
+    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
     itens = xml.search('status').map do |item|
       resultado = item.text
     end
 
+    Rails.logger.info "Resultado da consulta - " + resultado
     if !video.status && !(resultado == '1')
       
       video.status = true
