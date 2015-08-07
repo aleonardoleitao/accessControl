@@ -2,6 +2,7 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 
 	urlServer = url;
 	urlCompleta = "";
+	path = path.replace(".mp4","");
 	pathVideo = encodeURIComponent(path);
 	idVideo = id;
 	imagem = img;
