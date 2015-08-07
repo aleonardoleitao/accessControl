@@ -1,17 +1,17 @@
 function MontaVideo(url, path, id, img, wth, tk, pf) {
 
-	urlServer = url;
-	urlCompleta = "";
-	path = path.replace(".mp4","");
-	pathVideo = encodeURIComponent(path);
-	idVideo = id;
-	imagem = img;
-	width = wth;
-	token = tk;
-	perfil = pf;
+	var urlServer = url;
+	var urlCompleta = "";
+	var path = path.replace(".mp4","");
+	var pathVideo = encodeURIComponent(path);
+	var idVideo = id;
+	var imagem = img;
+	var width = wth;
+	var token = tk;
+	var perfil = pf;
 
 	// Url com tratamento de encode
-	urlTratamento = urlServer + "/videos/" + pathVideo + ".json";
+	var urlTratamento = urlServer + "/videos/" + pathVideo + ".json";
 	
 	// inicio uma requisição
     $.ajax({    	
@@ -32,11 +32,11 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 //480hx395w
 
 function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
-	idVideo = "#" + idVideo;
+	var idVideo = "#" + idVideo;
 	div = $(idVideo);
 	div.html("");
-	urlServer = urlServer + "/javascripts/player/"
-	watermark_user = "https://www.swingreal.com/videolog/" + perfil +  "/watermark.png";
+	var urlServer = urlServer + "/javascripts/player/"
+	var watermark_user = "https://www.swingreal.com/videolog/" + perfil +  "/watermark.png";
 	var player = new Clappr.Player({
 		poster: imagem,
 		source: urlCompleta,
