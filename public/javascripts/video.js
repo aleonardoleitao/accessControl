@@ -12,29 +12,21 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 
 	// Url com tratamento de encode
 	urlTratamento = urlServer + "/videos/" + pathVideo + ".json";
+	
+	// inicio uma requisição
+    $.ajax({    	
+        url : urlTratamento,
+        dataType : "json",
+    	// função para de sucesso
+        success : function(data){
 
-	//Criar imagem de loading
-	//div = $("#" + idVideo);
-	//div.append("<img src='" + imagem + "'/>");
+			//urlServer = "http://clappr.io/" + data.path + ".mp4?token=" + data.token;
+			urlCompleta = urlServer + "/" + data.path + ".mp4?token=" + data.token + "&tk=" + token + "&perfil=" + perfil;
+			comandos = '"' + urlServer + '","' + imagem + '","' + urlCompleta + '","' + idVideo + '","' + width + '","' + perfil + '"';
+			$("#"+ idVideo).append("<img style='cursor:pointer; height: 395px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
 
-	div = $("#"+ idVideo);
-
-	$( document ).ready(function() {
-		// inicio uma requisição
-	    $.ajax({    	
-	        url : urlTratamento,
-	        dataType : "json",
-	    	// função para de sucesso
-	        success : function(data){
-
-				//urlServer = "http://clappr.io/" + data.path + ".mp4?token=" + data.token;
-				urlCompleta = urlServer + "/" + data.path + ".mp4?token=" + data.token + "&tk=" + token + "&perfil=" + perfil;
-				comandos = '"' + urlServer + '","' + imagem + '","' + urlCompleta + '","' + idVideo + '","' + width + '","' + perfil + '"';
-				div.append("<img style='cursor:pointer; height: 395px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
-
-	        }
-	    });//termina o ajax
-	});
+        }
+    });//termina o ajax
 }
 
 //480hx395w
