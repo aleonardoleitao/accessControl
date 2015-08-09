@@ -43,7 +43,7 @@ class VideoController < ApplicationController
 
     Rails.logger.info "Resultado da consulta"
     Rails.logger.info resultado
-    
+
     if !video.status && !(resultado == '1')
 
       if(request.headers["HTTP_RANGE"]) && !chrome
@@ -73,7 +73,8 @@ class VideoController < ApplicationController
     else
       render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
     end
-
+  end
+  
   #def exibe_video
     #Rails.logger.info "Iniciando a consulta no exibe video"
     #Rails.logger.info params
