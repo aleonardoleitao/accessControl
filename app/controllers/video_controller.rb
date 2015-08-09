@@ -16,16 +16,35 @@ class VideoController < ApplicationController
 
   def exibe_video
 
-      user_agent = request.env['HTTP_USER_AGENT']
-      
-      chrome = false
-      if user_agent =~ /Chrome/
-        chrome = true
-        Rails.logger.info "Chrome"
-      end
+    user_agent = request.env['HTTP_USER_AGENT']
+    
+    chrome = false
+    if user_agent =~ /Chrome/
+      chrome = true
+      Rails.logger.info "Chrome"
+    end
 
-      file_path = File.join(["/mnt/Vids", params[:caminho1], params[:caminho2] + ".mp4"])
-      file_name = params[:caminho2] + ".mp4"
+    file_path = File.join(["/mnt/Vids", params[:caminho1], params[:caminho2] + ".mp4"])
+    file_name = params[:caminho2] + ".mp4"
+
+    Rails.logger.info "Iniciando a consulta no exibe video"
+    Rails.logger.info params
+
+    token = params[:token] + "&e=" + params[:e]
+    video = Video.find_by_token(token)      
+    tk = params[:tk]
+    perfil = params[:perfil]
+    resultado = 1
+
+    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
+    itens = xml.search('status').map do |item|
+     resultado = item.text
+    end
+
+    Rails.logger.info "Resultado da consulta"
+    Rails.logger.info resultado
+    
+    if !video.status && !(resultado == '1')
 
       if(request.headers["HTTP_RANGE"]) && !chrome
 
@@ -38,21 +57,22 @@ class VideoController < ApplicationController
         #response.header["Content-Range"] = "bytes #{bytes.begin}-#{bytes.end}/#{size}"
         
         Rails.logger.info "bytes #{bytes.begin}-#{bytes.end}/#{size}"
-
-        Rails.logger.info "Iniciando o envio"
-
+        Rails.logger.info "Iniciando o envio IOS"
         send_data IO.binread(file_path,length, offset), :type => "video/mp4", :stream => true,  :disposition => 'inline', :file_name => file_name
+        Rails.logger.info "Arquivo enviado IOS"
 
-        Rails.logger.info "Arquivo enviado"
       else
-        Rails.logger.info "Exibindo videos do chrome"
+        Rails.logger.info "Exibindo videos apenas para o chrome"
         Rails.logger.info file_path
         respond_to do |format|
           format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4', :buffer_size  =>  1024 )}
         end
         Rails.logger.info "Finalizando videos do chrome"
       end
-  end
+
+    else
+      render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+    end
 
   #def exibe_video
     #Rails.logger.info "Iniciando a consulta no exibe video"
