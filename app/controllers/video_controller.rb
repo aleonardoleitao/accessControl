@@ -8,8 +8,6 @@ class VideoController < ApplicationController
     @video = Video.new({path: params[:caminho],status:false,token:tokenGerado})
     @video.save
     respond_to do |format|
-      #format.json { render json: @video.map { |video| { path: URI.join(root_url, get_secure_path(video.path).to_s) }}}
-      #format.json { render json: { path: URI.join(root_url, get_secure_path(@video.path).to_s) }}
       format.json { render json: { path: params[:caminho], token: tokenGerado }}
     end
   end
@@ -36,13 +34,16 @@ class VideoController < ApplicationController
     perfil = params[:perfil]
     resultado = 1
 
-    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
-    itens = xml.search('status').map do |item|
-     resultado = item.text
-    end
+    #xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
+    #itens = xml.search('status').map do |item|
+    # resultado = item.text
+    #end
+    resultado = 0
 
-    Rails.logger.info "Resultado da consulta"
+    Rails.logger.info "Resultado da consulta - webserver"
     Rails.logger.info resultado
+    Rails.logger.info "Resultado da consulta - video token"
+    Rails.logger.info video.status
 
     if !video.status && !(resultado == '1')
 
@@ -53,8 +54,8 @@ class VideoController < ApplicationController
         offset = bytes.begin
         length = bytes.end  - bytes.begin
 
-        #response.header["Accept-Ranges"]=  "bytes"
-        #response.header["Content-Range"] = "bytes #{bytes.begin}-#{bytes.end}/#{size}"
+        response.header["Accept-Ranges"]=  "bytes"
+        response.header["Content-Range"] = "bytes #{bytes.begin}-#{bytes.end}/#{size}"
         
         Rails.logger.info "bytes #{bytes.begin}-#{bytes.end}/#{size}"
         Rails.logger.info "Iniciando o envio IOS"
@@ -74,7 +75,7 @@ class VideoController < ApplicationController
       render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
     end
   end
-  
+
   #def exibe_video
     #Rails.logger.info "Iniciando a consulta no exibe video"
     #Rails.logger.info params
