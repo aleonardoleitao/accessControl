@@ -28,14 +28,14 @@ class VideoController < ApplicationController
       resultado = item.text
     end
 
-    Rails.logger.info "Resultado da consulta - " + resultado
+    Rails.logger.info "Resultado da consulta"
     if !video.status && !(resultado == '1')
-      
       video.status = true
       video.save
-
       respond_to do |format|
-        format.mp4 { send_file File.join(["/mnt/Vids", params[:caminho1], params[:caminho2] + ".mp4"]), :type => 'video/mp4', :disposition => :inline, :stream => true, :buffer_size  =>  4096 }
+        #format.mp4 { send_file File.join(["/mnt/Vids", params[:caminho1], params[:caminho2] + ".mp4"]), :type => 'video/mp4', :disposition => :inline, :stream => true, :buffer_size  =>  4096 }
+        format.mp4 { send_file File.join(["/mnt/Vids", params[:caminho1], params[:caminho2] + ".mp4"]), :type => 'video/mp4', :buffer_size  =>  1024 }
+        #format.mp4 { send_file File.join(["/mnt/Vids/3000/1000.mp4"]), :type => 'video/mp4', :buffer_size  =>  1024 }
       end
     else
         render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)

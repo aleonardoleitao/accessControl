@@ -45,7 +45,6 @@ function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 		autoPlay: true,
 		hideMediaControl: false,
 		baseUrl: urlServer,
-		hideMediaControl: true,
 		watermark: watermark_user, position: 'bottom-right'
 	});
 }
