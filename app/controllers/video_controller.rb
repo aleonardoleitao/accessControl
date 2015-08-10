@@ -34,18 +34,20 @@ class VideoController < ApplicationController
     perfil = params[:perfil]
     resultado = 1
 
-    #xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
-    #itens = xml.search('status').map do |item|
-    # resultado = item.text
-    #end
-    resultado = 0
-
+    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
+    itens = xml.search('status').map do |item|
+      resultado = item.text
+    end
+    
     Rails.logger.info "Resultado da consulta - webserver"
     Rails.logger.info resultado
     Rails.logger.info "Resultado da consulta - video token"
     Rails.logger.info video.status
 
     if !video.status && !(resultado == '1')
+
+      video.status = true
+      video.save
 
       if(request.headers["HTTP_RANGE"]) && !chrome
 

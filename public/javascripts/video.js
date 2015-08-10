@@ -23,9 +23,10 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 			//urlServer = "http://clappr.io/" + data.path + ".mp4?token=" + data.token;
 			urlCompleta = urlServer + "/" + data.path + ".mp4?token=" + data.token + "&tk=" + token + "&perfil=" + perfil;
 			comandos = '"' + urlServer + '","' + imagem + '","' + urlCompleta + '","' + idVideo + '","' + width + '","' + perfil + '"';
-			$("#"+ idVideo).append("<img style='cursor:pointer; height: 360px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
-			//$("#"+ idVideo).addClass('placeholder');
-			//$("#"+ idVideo).css('background', 'url(' + imagem + ') no-repeat')
+			//$("#"+ idVideo).append("<img style='cursor:pointer; height: 360px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
+			$("#"+ idVideo).addClass("player-video");
+			$("#"+ idVideo).append("<div class='thumb-video'><img class='placeholder' src='" + imagem + "'/></div>");
+			$("#"+ idVideo).append("<div class='play-video'><img width='150px' height='150px' src='/static/images/video-play-button.png' onClick='javascript:exibeVideo(" + comandos + ");'/></div>");
 	    }
 	});//termina o ajax
 }
