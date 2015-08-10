@@ -26,7 +26,7 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 			//$("#"+ idVideo).append("<img style='cursor:pointer; height: 360px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
 			$("#"+ idVideo).addClass("player-video");
 			$("#"+ idVideo).append("<div class='thumb-video'><img class='placeholder' src='" + imagem + "'/></div>");
-			$("#"+ idVideo).append("<div class='play-video'><img width='150px' height='150px' src='/static/images/video-play-button.png' onClick='javascript:exibeVideo(" + comandos + ");'/></div>");
+			$("#"+ idVideo).append("<div class='play-video'><img width='150px' height='150px' src='" + urlServer + "/static/images/video-play-button.png' onClick='javascript:exibeVideo(" + comandos + ");'/></div>");
 	    }
 	});//termina o ajax
 }
