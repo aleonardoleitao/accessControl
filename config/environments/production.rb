@@ -4,6 +4,9 @@ AccessControl::Application.configure do
   # Code is not reloaded between requests
   config.cache_classes = true
 
+  #url do ambiente
+  url = 'mp4.swingreal.com'
+  
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -51,7 +54,7 @@ AccessControl::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { :host => 'sexcrs.com' }
+  config.action_mailer.default_url_options = { :host => 'mp4.swingreal.com' }
 
   # Enable threaded mode
   # config.threadsafe!

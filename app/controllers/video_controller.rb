@@ -15,41 +15,68 @@ class VideoController < ApplicationController
   def exibe_video
 
     user_agent = request.env['HTTP_USER_AGENT']
+    server_origem = request.referer
+    server_atual = "swingreal.com"
+
+    Rails.logger.info ("Servidor de origem - #{server_origem}")
     
+    if server_origem != nil 
+      resultadoTst = server_origem.index(server_atual)
+      Rails.logger.info ("Resultado da consulta - #{resultadoTst}")
+    else
+      Rails.logger.info ("Nao esta no site")
+    end
+
     chrome = false
+    safari = false
+    firefox = false
+
+    Rails.logger.info user_agent
     if user_agent =~ /Chrome/
       chrome = true
-      Rails.logger.info "Chrome"
+      Rails.logger.info "Browser Chrome"
+    end
+    if user_agent =~ /QuickTime/
+      safari = true
+      Rails.logger.info "Browser QuickTime"
+    end
+    if user_agent =~ /Firefox/
+      firefox = true
+      Rails.logger.info "Browser Firefox"
     end
 
     file_path = File.join(["/mnt/Vids", params[:caminho1], params[:caminho2] + ".mp4"])
     file_name = params[:caminho2] + ".mp4"
 
-    Rails.logger.info "Iniciando a consulta no exibe video"
-    Rails.logger.info params
+    Rails.logger.info "Iniciando a consulta no exibe video com os parametros - #{params}"
 
     token = params[:token] + "&e=" + params[:e]
-    video = Video.find_by_token(token)      
+    video = Video.find_by_token(token)
     tk = params[:tk]
     perfil = params[:perfil]
     resultado = 1
 
-    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
-    itens = xml.search('status').map do |item|
-      resultado = item.text
-    end
-    
+    #xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
+    #itens = xml.search('status').map do |item|
+    #  resultado = item.text
+    #end
+    resultado = 0
+
     Rails.logger.info "Resultado da consulta - webserver"
     Rails.logger.info resultado
     Rails.logger.info "Resultado da consulta - video token"
     Rails.logger.info video.status
 
-    if !video.status && !(resultado == '1')
+    #Se safari invalida autenticacao para download
+    #if safari==true || (!video.status && !(resultado == '1'))
 
-      video.status = true
-      video.save
+    if resultadoTst>0
+    #  video.status = true
+    #  video.save
 
-      if(request.headers["HTTP_RANGE"]) && !chrome
+      Rails.logger.info "Exbindo o video"
+
+      if(request.headers["HTTP_RANGE"]) && !chrome && !firefox
 
         size = File.size(file_path)
         bytes = Rack::Utils.byte_ranges(request.headers, size)[0]
