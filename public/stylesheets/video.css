@@ -3,8 +3,7 @@
 	width: 480px;
 }
 
-.thumb-video {
-	position: relative;
+.thumb-video {	
 }
 
 .play-video {
@@ -17,4 +16,5 @@
 
 .player-video {
 	float: left;
+	position: relative;
 }

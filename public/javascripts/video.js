@@ -32,7 +32,6 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 }
 
 //480hx395w
-
 function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 	var idVideo = "#" + idVideo;
 	div = $(idVideo);

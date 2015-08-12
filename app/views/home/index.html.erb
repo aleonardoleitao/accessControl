@@ -10,20 +10,27 @@
 </head>
 
 <body>
-
+<div id="video-1001"></div>
 <div id="video-1002"></div>
 
 <script type="text/javascript">
 
-	var player = new Clappr.Player({
-		poster: "http://www.unitedonline.net/images/untd-video-thumb-1.jpg",
-		source: "https://mp4.swingreal.com/test/23094/2309447C6CC2A8433488DA103744BD434BE1617122011095943.mp4",
-		parentId: "#video-1002",
-		width: "480",
-		autoPlay: true,
-		hideMediaControl: true,
-		baseUrl: "https://mp4.swingreal.com/javascripts/player/"
-	});
+MontaVideo(	"https://mp4.swingreal.com",
+				"video/30215/3021517A2CA66E19848349207D3AD80D54FA620112013111418.mp4",
+				"video-1001",
+				"http://www.swingreal.com/videolog/30215/3021517A2CA66E19848349207D3AD80D54FA620112013111418.jpg",
+				"480",
+				"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}",
+				"2");
+
+
+MontaVideo(	"https://mp4.swingreal.com",
+			"video/30215/3021517A2CA66E19848349207D3AD80D54FA620112013111418.mp4",
+			"video-1002",
+			"http://www.swingreal.com/videolog/30215/3021517A2CA66E19848349207D3AD80D54FA620112013111418.jpg",
+			"480",
+			"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}",
+			"2");
 
 </script>
 

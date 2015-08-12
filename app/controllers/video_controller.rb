@@ -15,23 +15,9 @@ class VideoController < ApplicationController
   def exibe_video
 
     user_agent = request.env['HTTP_USER_AGENT']
-    server_origem = request.referer
-    server_atual = "swingreal.com"
+    chrome, safari, firefox = false
 
-    Rails.logger.info ("Servidor de origem - #{server_origem}")
-    
-    if server_origem != nil 
-      resultadoTst = server_origem.index(server_atual)
-      Rails.logger.info ("Resultado da consulta - #{resultadoTst}")
-    else
-      Rails.logger.info ("Nao esta no site")
-    end
-
-    chrome = false
-    safari = false
-    firefox = false
-
-    Rails.logger.info user_agent
+    Rails.logger.info "UserAgente - #{user_agent}"
     if user_agent =~ /Chrome/
       chrome = true
       Rails.logger.info "Browser Chrome"
@@ -62,21 +48,42 @@ class VideoController < ApplicationController
     #end
     resultado = 0
 
-    Rails.logger.info "Resultado da consulta - webserver"
-    Rails.logger.info resultado
-    Rails.logger.info "Resultado da consulta - video token"
-    Rails.logger.info video.status
+    Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
+    Rails.logger.info "Resultado da consulta - video token - #{video.status}"
 
     #Se safari invalida autenticacao para download
     #if safari==true || (!video.status && !(resultado == '1'))
 
-    if resultadoTst>0
-    #  video.status = true
-    #  video.save
+    mobile_android =  "palm|blackberry|nokia|phone|midp|mobi|symbian|chtml|ericsson|minimo|audiovox|motorola|samsung|telit|upg1|windows ce|ucweb|astel|plucker|x320|x240|j2me|sgh|portable|sprint|docomo|kddi|softbank|android|mmp|pdxgw|netfront|xiino|vodafone|portalmmm|sagem|mot-|sie-|ipod|up\\.b|webos|amoi|novarra|cdm|alcatel|pocket|ipad|iphone|mobileexplorer|mobile|zune"
+    mobile_iphone =  "ipod|ipad|iphone"
+    mobile_windowsce = "windows ce"
+
+    mobile_android = Regexp.new(mobile_android).match(user_agent.to_s.downcase)
+    mobile_iphone = Regexp.new(mobile_iphone).match(user_agent.to_s.downcase)
+    mobile_windowsce = Regexp.new(mobile_windowsce).match(user_agent.to_s.downcase)
+
+    if mobile_android == nil 
+      mobile_android = 0 
+    end
+    if mobile_iphone == nil 
+      mobile_iphone = 0 
+    end
+    if mobile_windowsce == nil 
+      mobile_windowsce = 0 
+    end
+
+    Rails.logger.info ("Android - #{mobile_android}")
+    Rails.logger.info ("IOs - #{mobile_iphone}")
+    Rails.logger.info ("Windows CE - #{mobile_windowsce}")
+
+    if (mobile_android!=0 || mobile_iphone || mobile_windowsce) || (!video.status && !(resultado == '1'))
+
+      video.status = true
+      video.save
 
       Rails.logger.info "Exbindo o video"
 
-      if(request.headers["HTTP_RANGE"]) && !chrome && !firefox
+      if(request.headers["HTTP_RANGE"]) && !chrome && !firefox && !(mobile_android != 0)
 
         size = File.size(file_path)
         bytes = Rack::Utils.byte_ranges(request.headers, size)[0]
@@ -104,7 +111,7 @@ class VideoController < ApplicationController
       render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
     end
   end
-
+  
   #def exibe_video
     #Rails.logger.info "Iniciando a consulta no exibe video"
     #Rails.logger.info params
