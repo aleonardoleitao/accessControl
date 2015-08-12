@@ -20,14 +20,14 @@
 }
 
 [data-watermark-bottom-right] {
-    bottom: 30px;
-    right: 0;
+    bottom: 30px !important;
+    right: 0 !important;
 }
 [data-watermark] {
     max-width: 200px;
     min-width: 70px;
     position: absolute;
     text-align: center;
-    width: 100%;
+    width: 100% !important;
     z-index: 10;
 }
