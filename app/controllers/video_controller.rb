@@ -76,7 +76,7 @@ class VideoController < ApplicationController
     Rails.logger.info ("IOs - #{mobile_iphone}")
     Rails.logger.info ("Windows CE - #{mobile_windowsce}")
 
-    if (mobile_android!=0 || mobile_iphone || mobile_windowsce) || (!video.status && !(resultado == '1'))
+    if (mobile_android!=0 || mobile_iphone!=0 || mobile_windowsce!=0) || (!video.status && !(resultado == '1'))
 
       video.status = true
       video.save
