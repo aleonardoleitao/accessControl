@@ -13,6 +13,12 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 	// Url com tratamento de encode
 	var urlTratamento = urlServer + "/videos/" + pathVideo + ".json";
 
+	//Carregamento da div
+	$("#"+ idVideo).addClass("player-video");
+	$("#"+ idVideo).append("<div class='thumb-video'><img class='placeholder' src='" + imagem + "'/></div>");
+	$("#"+ idVideo).append("<div class='play-video' id='link" + idVideo + "'><img width='150px' height='150px' src='" + urlServer + "/static/images/video-play-button.png' onClick='javascript::' /></div>");
+
+
 	// inicio uma requisição
 	$.ajax({    	
 	    url : urlTratamento,
@@ -24,9 +30,7 @@ function MontaVideo(url, path, id, img, wth, tk, pf) {
 			urlCompleta = urlServer + "/" + data.path + ".mp4?token=" + data.token + "&tk=" + token + "&perfil=" + perfil;
 			comandos = '"' + urlServer + '","' + imagem + '","' + urlCompleta + '","' + idVideo + '","' + width + '","' + perfil + '"';
 			//$("#"+ idVideo).append("<img style='cursor:pointer; height: 360px; width: "+width+"px;' src='" + imagem + "' onClick='javascript:exibeVideo(" + comandos + ");'/>");
-			$("#"+ idVideo).addClass("player-video");
-			$("#"+ idVideo).append("<div class='thumb-video'><img class='placeholder' src='" + imagem + "'/></div>");
-			$("#"+ idVideo).append("<div class='play-video'><img width='150px' height='150px' src='" + urlServer + "/static/images/video-play-button.png' onClick='javascript:exibeVideo(" + comandos + ");'/></div>");
+			$("#link" + idVideo).html("<img width='150px' height='150px' src='" + urlServer + "/static/images/video-play-button.png' onClick='javascript:exibeVideo(" + comandos + ");'/>");
 	    }
 	});//termina o ajax
 }
