@@ -18,3 +18,16 @@
 	float: left;
 	position: relative;
 }
+
+[data-watermark-bottom-right] {
+    bottom: 30px;
+    right: 0;
+}
+[data-watermark] {
+    max-width: 200px;
+    min-width: 70px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+}
