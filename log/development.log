@@ -7715,3 +7715,241 @@ Processing by VideoController#gera_video as JSON
   [1m[35mSQL (0.2ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-12 03:07:12', 'video/3000/1000', 0, 'DeAAU2uFRSdXqb2ZITEGZ7F7tyg&e=1439349432', '2015-08-12 03:07:12')
   [1m[36m (210.5ms)[0m  [1mCOMMIT[0m
 Completed 200 OK in 215.0ms (Views: 0.2ms | ActiveRecord: 210.9ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/video/3000/1000.mp4?token=DeAAU2uFRSdXqb2ZITEGZ7F7tyg&e=1439349432&tk=30072015111257%7B1005BE9F-781E-4B97-BD6F-977A61B1E635%7D&perfil=2" for 127.0.0.1 at 2015-08-12 00:11:55 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"DeAAU2uFRSdXqb2ZITEGZ7F7tyg", "e"=>"1439349432", "tk"=>"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}", "perfil"=>"2", "caminho1"=>"3000", "caminho2"=>"1000"}
+UserAgente - NSPlayer/12.00.9651.0000 WMFSDK/12.00.9651.0000
+Iniciando a consulta no exibe video com os parametros - {"token"=>"DeAAU2uFRSdXqb2ZITEGZ7F7tyg", "e"=>"1439349432", "tk"=>"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}", "perfil"=>"2", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.6ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'DeAAU2uFRSdXqb2ZITEGZ7F7tyg&e=1439349432' LIMIT 1[0m
+Resultado da consulta - webserver - 0
+Resultado da consulta - video token - false
+Android - 0
+IOs - 0
+Windows CE - 0
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-12 03:11:55' WHERE `videos`.`id` = 636[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Exbindo o video
+Exibindo videos apenas para o chrome
+/mnt/Vids/3000/1000.mp4
+Sent file /mnt/Vids/3000/1000.mp4 (0.4ms)
+Finalizando videos do chrome
+Completed 200 OK in 113.4ms (ActiveRecord: 56.5ms)
+
+
+Started GET "/dev" for 127.0.0.1 at 2015-08-12 00:12:48 -0300
+Processing by HomeController#dev as HTML
+  Rendered home/dev.html.erb (1.5ms)
+Completed 200 OK in 46.7ms (Views: 44.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-12 00:12:48 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-12 03:12:48', 'video/3000/1000', 0, 'jqbNIOF6NZbIYn1YgIMPh63Tyls&e=1439349768', '2015-08-12 03:12:48')
+  [1m[36m (175.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 180.1ms (Views: 0.3ms | ActiveRecord: 175.4ms)
+
+
+Started GET "/videos/video%2F3000%2F1000.json" for 127.0.0.1 at 2015-08-12 00:12:49 -0300
+Processing by VideoController#gera_video as JSON
+  Parameters: {"caminho"=>"video/3000/1000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `videos` (`created_at`, `path`, `status`, `token`, `updated_at`) VALUES ('2015-08-12 03:12:49', 'video/3000/1000', 0, 'nrumsyV_XB1riYJXwLG1lfJfct8&e=1439349769', '2015-08-12 03:12:49')[0m
+  [1m[35m (41.5ms)[0m  COMMIT
+Completed 200 OK in 45.7ms (Views: 0.2ms | ActiveRecord: 41.9ms)
+
+
+Started GET "/video/3000/1000.mp4?token=jqbNIOF6NZbIYn1YgIMPh63Tyls&e=1439349768&tk=30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}&perfil=2" for 127.0.0.1 at 2015-08-12 00:12:52 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"jqbNIOF6NZbIYn1YgIMPh63Tyls", "e"=>"1439349768", "tk"=>"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}", "perfil"=>"2", "caminho1"=>"3000", "caminho2"=>"1000"}
+UserAgente - Mozilla/5.0 (Linux; Android 5.0.2; SM-A700FD Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.133 Mobile Safari/537.36
+Browser Chrome
+Iniciando a consulta no exibe video com os parametros - {"token"=>"jqbNIOF6NZbIYn1YgIMPh63Tyls", "e"=>"1439349768", "tk"=>"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}", "perfil"=>"2", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.6ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'jqbNIOF6NZbIYn1YgIMPh63Tyls&e=1439349768' LIMIT 1[0m
+Resultado da consulta - webserver - 0
+Resultado da consulta - video token - false
+Android - android
+IOs - 0
+Windows CE - 0
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `videos` SET `status` = 1, `updated_at` = '2015-08-12 03:12:52' WHERE `videos`.`id` = 638[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Exbindo o video
+Exibindo videos apenas para o chrome
+/mnt/Vids/3000/1000.mp4
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Finalizando videos do chrome
+Completed 200 OK in 6.8ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/video/3000/1000.mp4?token=jqbNIOF6NZbIYn1YgIMPh63Tyls&e=1439349768&tk=30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}&perfil=2" for 127.0.0.1 at 2015-08-12 00:12:52 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"jqbNIOF6NZbIYn1YgIMPh63Tyls", "e"=>"1439349768", "tk"=>"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}", "perfil"=>"2", "caminho1"=>"3000", "caminho2"=>"1000"}
+UserAgente - Samsung SM-A700FD stagefright/Beyonce/1.1.9 (Linux;Android 5.0.2)
+Iniciando a consulta no exibe video com os parametros - {"token"=>"jqbNIOF6NZbIYn1YgIMPh63Tyls", "e"=>"1439349768", "tk"=>"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}", "perfil"=>"2", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[36mVideo Load (0.5ms)[0m  [1mSELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'jqbNIOF6NZbIYn1YgIMPh63Tyls&e=1439349768' LIMIT 1[0m
+Resultado da consulta - webserver - 0
+Resultado da consulta - video token - true
+Android - samsung
+IOs - 0
+Windows CE - 0
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Exbindo o video
+Exibindo videos apenas para o chrome
+/mnt/Vids/3000/1000.mp4
+Sent file /mnt/Vids/3000/1000.mp4 (0.3ms)
+Finalizando videos do chrome
+Completed 200 OK in 4.9ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/video/3000/1000.mp4?token=jqbNIOF6NZbIYn1YgIMPh63Tyls&e=1439349768&tk=30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}&perfil=2" for 127.0.0.1 at 2015-08-12 00:12:53 -0300
+Processing by VideoController#exibe_video as MP4
+  Parameters: {"token"=>"jqbNIOF6NZbIYn1YgIMPh63Tyls", "e"=>"1439349768", "tk"=>"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}", "perfil"=>"2", "caminho1"=>"3000", "caminho2"=>"1000"}
+UserAgente - Samsung SM-A700FD stagefright/Beyonce/1.1.9 (Linux;Android 5.0.2)
+Iniciando a consulta no exibe video com os parametros - {"token"=>"jqbNIOF6NZbIYn1YgIMPh63Tyls", "e"=>"1439349768", "tk"=>"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}", "perfil"=>"2", "controller"=>"video", "action"=>"exibe_video", "caminho1"=>"3000", "caminho2"=>"1000", "format"=>"mp4"}
+  [1m[35mVideo Load (0.6ms)[0m  SELECT `videos`.* FROM `videos` WHERE `videos`.`token` = 'jqbNIOF6NZbIYn1YgIMPh63Tyls&e=1439349768' LIMIT 1
+Resultado da consulta - webserver - 0
+Resultado da consulta - video token - true
+Android - samsung
+IOs - 0
+Windows CE - 0
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Exbindo o video
+Exibindo videos apenas para o chrome
+/mnt/Vids/3000/1000.mp4
+Sent file /mnt/Vids/3000/1000.mp4 (0.6ms)
+Finalizando videos do chrome
+Completed 200 OK in 5.8ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/chromecast.eot" for 127.0.0.1 at 2015-08-12 00:13:15 -0300
+Served asset /chromecast.eot - 404 Not Found (109ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/chromecast.eot"):
+  actionpack (3.2.15) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.15) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.15) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.15) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.15) lib/rails/engine.rb:484:in `call'
+  railties (3.2.15) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.15) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `catch'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.15) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.15) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.15) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.15) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/chromecast.woff?-2rwb6t" for 127.0.0.1 at 2015-08-12 00:13:16 -0300
+Served asset /chromecast.woff - 404 Not Found (4ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/chromecast.woff"):
+  actionpack (3.2.15) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.15) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.15) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.15) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.15) lib/rails/engine.rb:484:in `call'
+  railties (3.2.15) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.15) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `catch'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.15) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.15) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.15) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.15) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/chromecast.ttf?-2rwb6t" for 127.0.0.1 at 2015-08-12 00:13:16 -0300
+Served asset /chromecast.ttf - 404 Not Found (4ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/chromecast.ttf"):
+  actionpack (3.2.15) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.15) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.15) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.15) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.15) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.15) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.15) lib/rails/engine.rb:484:in `call'
+  railties (3.2.15) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.15) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `catch'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.15) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.15) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.15) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.15) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
