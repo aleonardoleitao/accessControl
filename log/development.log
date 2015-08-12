@@ -7953,3 +7953,4 @@ ActionController::RoutingError (No route matches [GET] "/assets/chromecast.ttf")
 
 
   Rendered /Users/novasmidias/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+Connecting to database specified by database.yml

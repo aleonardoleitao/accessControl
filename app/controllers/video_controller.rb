@@ -83,7 +83,7 @@ class VideoController < ApplicationController
 
       Rails.logger.info "Exbindo o video"
 
-      if(request.headers["HTTP_RANGE"]) && !chrome && !firefox && !(mobile_android != 0)
+      if (mobile_iphone!=0) || ((request.headers["HTTP_RANGE"]) && !chrome && !firefox && !(mobile_android != 0))
 
         size = File.size(file_path)
         bytes = Rack::Utils.byte_ranges(request.headers, size)[0]
