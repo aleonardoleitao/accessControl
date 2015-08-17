@@ -41,7 +41,7 @@ function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 	div = $(idVideo);
 	div.html("");
 	var urlServer = urlServer + "/javascripts/player/"
-	var watermark_user = "https://www.swingreal.com/videolog/" + perfil +  "/watermark.png";
+	var watermark_user = "https://m.swingreal.com/videolog/" + perfil +  "/watermark.png";
 	var player = new Clappr.Player({
 		poster: imagem,
 		source: urlCompleta,
