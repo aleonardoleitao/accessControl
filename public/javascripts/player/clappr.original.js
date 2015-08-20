@@ -3693,7 +3693,6 @@ var Core = (function (_UIObject) {
       get: function () {
         return {
           "data-player": "",
-	  "class":"video-swingreal",
           tabindex: 9999 };
       }
     },
