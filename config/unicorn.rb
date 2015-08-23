@@ -8,7 +8,7 @@ rails_env = ENV['RAILS_ENV'] || 'qa1'
 # Set unicorn options
 
 if rails_env == 'qa1'
-  worker_processes 5
+  worker_processes 15
 else
   worker_processes 20
 end
