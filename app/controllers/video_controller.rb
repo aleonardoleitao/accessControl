@@ -46,7 +46,6 @@ class VideoController < ApplicationController
     itens = xml.search('status').map do |item|
       resultado = item.text
     end
-    resultado = 0
 
     Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
     Rails.logger.info "Resultado da consulta - video token - #{video.status}"
