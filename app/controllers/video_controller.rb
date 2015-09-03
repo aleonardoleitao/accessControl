@@ -16,6 +16,7 @@ class VideoController < ApplicationController
 
     user_agent = request.env['HTTP_USER_AGENT']
     chrome, safari, firefox = false
+    diretorio = "/mnt/Vids"
 
     Rails.logger.info "UserAgente - #{user_agent}"
     if user_agent =~ /Chrome/
@@ -31,8 +32,12 @@ class VideoController < ApplicationController
       Rails.logger.info "Browser Firefox"
     end
 
-    file_path = File.join(["/mnt/Vids", params[:caminho1], params[:caminho2] + ".mp4"])
     file_name = params[:caminho2] + ".mp4"
+    if file_name == "4125945F1D0BE26B4474C897026704D1B88E621082015073455" || file_name == "41259E2B5E7A778474B62AA8464709CBA962B20082015120530" || file_name == "412595829D51A8AC549F8B3FB7E67C41238F217082015163546"
+      diretorio = "/opt/railsapps/videos"
+    end
+    file_path = File.join([diretorio, params[:caminho1], params[:caminho2] + ".mp4"])
+    
 
     Rails.logger.info "Iniciando a consulta no exibe video com os parametros - #{params}"
 
