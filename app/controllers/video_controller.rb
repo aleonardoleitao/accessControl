@@ -100,6 +100,7 @@ class VideoController < ApplicationController
         Rails.logger.info "bytes #{bytes.begin}-#{bytes.end}/#{size}"
         Rails.logger.info "Iniciando o envio IOS"
         send_data IO.binread(file_path,length, offset), :type => "video/mp4", :stream => true,  :disposition => 'inline', :file_name => file_name
+        #x_accel_redirect IO.binread(file_path,length, offset), :type => "video/mp4", :stream => true,  :disposition => 'inline', :file_name => file_name
         Rails.logger.info "Arquivo enviado IOS"
 
       else
@@ -107,6 +108,7 @@ class VideoController < ApplicationController
         Rails.logger.info file_path
         respond_to do |format|
           format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4', :buffer_size  =>  2048 )}
+          #format.mp4 { x_accel_redirect(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4', :buffer_size  =>  2048 )}
         end
         Rails.logger.info "Finalizando videos do chrome"
       end

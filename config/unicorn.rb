@@ -38,7 +38,7 @@ end
 
 before_fork do |server, worker|
   # ActiveRecord::Base.connection.disconnect!
-  ENV["LOG_LEVEL"] = "info"
+  ENV["LOG_LEVEL"] = "error"
 
   old_pid = "#{server.config[:pid]}.oldbin"
   if File.exists?(old_pid) && server.pid != old_pid

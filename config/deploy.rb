@@ -15,9 +15,10 @@ set :use_sudo, false
 set :deploy_to, "/opt/railsapps/accessControl"
 set :shared_children, %w()
 set :deploy_via, :remote_cache
+set :keep_releases, 3
 
-after "deploy:update", "deploy:migrate"
-after "deploy:restart", "deploy:cleanup"
+after "deploy:update", "deploy:migrate", "deploy:cleanup"
+after "deploy:restart"
 after "deploy:create_symlink", "deploy:link_media"
 
 namespace :deploy do
