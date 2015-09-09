@@ -19,7 +19,8 @@ set :keep_releases, 3
 
 after "deploy:update", "deploy:migrate"
 
-set :use_sudo, false
+set :pty, true
+
 after "deploy:restart", "deploy:cleanup"
 after "deploy:create_symlink", "deploy:link_media"
 
