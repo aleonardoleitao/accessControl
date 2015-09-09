@@ -18,6 +18,8 @@ set :deploy_via, :remote_cache
 set :keep_releases, 3
 
 after "deploy:update", "deploy:migrate"
+
+set :use_sudo, false
 after "deploy:restart", "deploy:cleanup"
 after "deploy:create_symlink", "deploy:link_media"
 
