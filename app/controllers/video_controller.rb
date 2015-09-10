@@ -96,8 +96,8 @@ class VideoController < ApplicationController
 
         response.header["Accept-Ranges"]=  "bytes"
         response.header["Content-Range"] = "bytes #{bytes.begin}-#{bytes.end}/#{size}"
-        response.header["Content-Length"] = size
-        
+        #response.header["Content-Length"] = size
+
         Rails.logger.info "bytes #{bytes.begin}-#{bytes.end}/#{size}"
         Rails.logger.info "Iniciando o envio IOS"
         send_data IO.binread(file_path,length, offset), :type => "video/mp4", :stream => true, :x_sendfile => true, :disposition => 'inline', :file_name => file_name, :buffer_size  =>  2048
