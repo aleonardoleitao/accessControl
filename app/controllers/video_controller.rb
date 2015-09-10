@@ -92,14 +92,15 @@ class VideoController < ApplicationController
         size = File.size(file_path)
         bytes = Rack::Utils.byte_ranges(request.headers, size)[0]
         offset = bytes.begin
-        length = bytes.end  - bytes.begin
+        length = bytes.end - bytes.begin + 1
 
         response.header["Accept-Ranges"]=  "bytes"
         response.header["Content-Range"] = "bytes #{bytes.begin}-#{bytes.end}/#{size}"
+        response.header["Content-Length"] = size
         
         Rails.logger.info "bytes #{bytes.begin}-#{bytes.end}/#{size}"
         Rails.logger.info "Iniciando o envio IOS"
-        send_data IO.binread(file_path,length, offset), :type => "video/mp4", :stream => true,  :disposition => 'inline', :file_name => file_name
+        send_data IO.binread(file_path,length, offset), :type => "video/mp4", :stream => true, :x_sendfile => true, :disposition => 'inline', :file_name => file_name, :buffer_size  =>  2048
         #x_accel_redirect IO.binread(file_path,length, offset), :type => "video/mp4", :stream => true,  :disposition => 'inline', :file_name => file_name
         Rails.logger.info "Arquivo enviado IOS"
 
@@ -107,8 +108,8 @@ class VideoController < ApplicationController
         Rails.logger.info "Exibindo videos apenas para o chrome"
         Rails.logger.info file_path
         respond_to do |format|
-          format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4', :buffer_size  =>  2048 )}
-          #format.mp4 { x_accel_redirect(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4', :buffer_size  =>  2048 )}
+          format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :x_sendfile => true, :type => 'video/mp4', :buffer_size  =>  2048 )}
+          #format.mp4 { x_accel_redirect("/protected/41259/4125945F1D0BE26B4474C897026704D1B88E621082015073455.mp4", :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4', :buffer_size  =>  2048 )}
         end
         Rails.logger.info "Finalizando videos do chrome"
       end
