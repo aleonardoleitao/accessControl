@@ -196,6 +196,8 @@ class VideoController < ApplicationController
       Rails.logger.info "Exbindo o video"
 
       size = File.size(file_path)
+      Rails.logger.info "Exbindo o video #{size}"
+      Rails.logger.info "Exbindo o video #{request.headers}"
       bytes = Rack::Utils.byte_ranges(request.headers, size)[0]
       offset = bytes.begin
       length = bytes.end - bytes.begin + 1
