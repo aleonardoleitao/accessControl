@@ -140,9 +140,6 @@ class VideoController < ApplicationController
     end
 
     file_name = params[:caminho2] + ".mp4"
-    if file_name == "4125945F1D0BE26B4474C897026704D1B88E621082015073455" || file_name == "41259E2B5E7A778474B62AA8464709CBA962B20082015120530" || file_name == "412595829D51A8AC549F8B3FB7E67C41238F217082015163546"
-      diretorio = "/opt/railsapps/videos"
-    end
     file_path = File.join([diretorio, params[:caminho1], params[:caminho2] + ".mp4"])
     
 
@@ -196,8 +193,6 @@ class VideoController < ApplicationController
       Rails.logger.info "Exbindo o video"
 
       size = File.size(file_path)
-      Rails.logger.info "Exbindo o video #{size}"
-      Rails.logger.info "Exbindo o video #{request.headers}"
       bytes = Rack::Utils.byte_ranges(request.headers, size)[0]
       offset = bytes.begin
       length = bytes.end - bytes.begin + 1
