@@ -79,11 +79,19 @@ function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 	div.html("");
 	var urlServer = urlServer + "/javascripts/player/"
 	var watermark_user = "https://m.swingreal.com/videolog/" + perfil +  "/watermark.png";
+
+	var valueWidth = $(document).width();
+	if valueWidth > 480 {
+		valueWidth = 480;
+	}
+	var valueHeight = Math.round((valueWidth/4)*3);
+	
 	var player = new Clappr.Player({
 		poster: imagem,
 		source: urlCompleta,
 		parentId: idVideo,
-		width: width,
+		width: valueWidth,
+		height: valueHeight,
 		autoPlay: true,
 		hideMediaControl: false,
 		baseUrl: urlServer,
