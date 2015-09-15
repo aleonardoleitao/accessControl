@@ -83,6 +83,7 @@ function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 		poster: imagem,
 		source: urlCompleta,
 		parentId: idVideo,
+		persistConfig: false;
 		//width: width,
 		autoPlay: true,
 		hideMediaControl: false,
