@@ -31,3 +31,10 @@
     width: 100% !important;
     z-index: 10;
 }
+
+#video {
+    display: inline-block;
+    width: 480px;
+    height: 360px;
+    padding: 5px;
+}
