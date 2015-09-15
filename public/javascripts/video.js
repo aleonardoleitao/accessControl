@@ -79,20 +79,16 @@ function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 	div.html("");
 	var urlServer = urlServer + "/javascripts/player/"
 	var watermark_user = "https://m.swingreal.com/videolog/" + perfil +  "/watermark.png";
-	
 	var player = new Clappr.Player({
 		poster: imagem,
 		source: urlCompleta,
 		parentId: idVideo,
-		width: "100%",
-		height: "100%",
-		//width: width,
+		width: width,
 		autoPlay: true,
 		hideMediaControl: false,
 		baseUrl: urlServer,
 		watermark: watermark_user, position: 'bottom-right'
 	});
-	
 }
 
 //480hx395w
