@@ -86,9 +86,6 @@ function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 	}
 	var valueHeight = Math.round((valueWidth/4)*3);
 	
-	console.log("valueWidth : " + valueWidth);
-	console.log("valueHeight : " + valueHeight);
-
 	var player = new Clappr.Player({
 		poster: imagem,
 		source: urlCompleta,
