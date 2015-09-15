@@ -80,7 +80,7 @@ function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 	var urlServer = urlServer + "/javascripts/player/"
 	var watermark_user = "https://m.swingreal.com/videolog/" + perfil +  "/watermark.png";
 
-	var valueWidth = $(document).width();
+	var valueWidth = $(window).width();
 	if (valueWidth > 480) {
 		valueWidth = 480;
 	}
