@@ -84,6 +84,7 @@ function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 		source: urlCompleta,
 		parentId: idVideo,
 		width: "100%",
+		height: "100%",
 		//width: width,
 		autoPlay: true,
 		hideMediaControl: false,
