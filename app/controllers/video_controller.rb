@@ -108,7 +108,7 @@ class VideoController < ApplicationController
         Rails.logger.info "Exibindo videos apenas para o chrome"
         Rails.logger.info file_path
         respond_to do |format|
-          format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :x_sendfile => true, :type => 'video/mp4', :buffer_size  =>  2048 )}
+          format.mp4 { send_file(file_path, :file_name => file_name, :x_sendfile => true, :type => 'video/mp4', :buffer_size  =>  2048 )}
           #format.mp4 { x_accel_redirect("/protected/41259/4125945F1D0BE26B4474C897026704D1B88E621082015073455.mp4", :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4', :buffer_size  =>  2048 )}
         end
         Rails.logger.info "Finalizando videos do chrome"
