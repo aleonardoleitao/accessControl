@@ -112,6 +112,7 @@ function exibeVideoHtml5(urlServer, imagem, urlCompleta, idVideo, width, perfil)
 	/// ... some setup like poster image, size, position etc. goes here...
 	/// now, add sources:
 	videlem.autoplay	= true;
+	//videlem.autobuffer	= true;
 	videlem.controls	= true;
 	videlem.preload		= "auto";
 	//videlem.data-setup	= '{"controls":true}';
@@ -124,4 +125,10 @@ function exibeVideoHtml5(urlServer, imagem, urlCompleta, idVideo, width, perfil)
 	videlem.appendChild(sourceMP4);
 
 	div.html(videlem);
+
+	// var video = document.getElementById('video');
+	// 	video.addEventListener('click',function(){
+	// 		video.play();
+	// 	},false);
+
 }
