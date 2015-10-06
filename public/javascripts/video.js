@@ -126,9 +126,9 @@ function exibeVideoHtml5(urlServer, imagem, urlCompleta, idVideo, width, perfil)
 
 	div.html(videlem);
 
-	// var video = document.getElementById('video');
-	// 	video.addEventListener('click',function(){
-	// 		video.play();
-	// 	},false);
+	var video = document.getElementById('video');
+		video.addEventListener('click',function(){
+			video.play();
+		},false);
 
 }
