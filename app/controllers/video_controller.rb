@@ -186,8 +186,10 @@ class VideoController < ApplicationController
     Rails.logger.info ("Android - #{mobile_android}")
     Rails.logger.info ("IOs - #{mobile_iphone}")
     Rails.logger.info ("Windows CE - #{mobile_windowsce}")
+    Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
 
-    if !(resultado == '1') && ((mobile_android!=0 || mobile_iphone!=0 || mobile_windowsce!=0) || (!video.status))
+    if resultado && request.headers['HTTP_RANGE']
+    #if !(resultado == '1') && ((mobile_android!=0 || mobile_iphone!=0 || mobile_windowsce!=0) || (!video.status))
 
       video.status = true
       video.save
