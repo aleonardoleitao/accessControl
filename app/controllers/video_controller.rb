@@ -153,6 +153,13 @@ class VideoController < ApplicationController
     tk = params[:tk]
     perfil = params[:perfil]
     resultado = 1
+    acessoDuplicado = 0 #inicia o acesso duplicado com false
+
+    if video.time
+      #Verifica se o usuario acessou essa mesma url 2 vezes
+      acessoDuplicado = ((video.time+2)>=Time.now)
+      Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
+    end
 
     xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
     itens = xml.search('status').map do |item|
@@ -189,11 +196,14 @@ class VideoController < ApplicationController
     Rails.logger.info ("Windows CE - #{mobile_windowsce}")
     Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
 
-    if resultado && ((mobile_android!=0 || mobile_windowsce!=0) || request.headers['HTTP_RANGE'])
+    if resultado && (acessoDuplicado || request.headers['HTTP_RANGE'])
     #if !(resultado == '1') && ((mobile_android!=0 || mobile_iphone!=0 || mobile_windowsce!=0) || (!video.status))
 
-      video.status = true
-      video.save
+      if !video.status
+        video.status = true
+        video.time = Time.now
+        video.save
+      end
 
       Rails.logger.info "Exbindo o video - streaming"
 
