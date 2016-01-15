@@ -151,7 +151,7 @@ class VideoController < ApplicationController
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+5)>=Time.now)
+      acessoDuplicado = ((video.time+3)>=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
