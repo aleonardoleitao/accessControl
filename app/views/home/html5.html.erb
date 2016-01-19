@@ -16,17 +16,54 @@
 
 <body>
 
-<div id="video-1001"></div>
+<div id="video-1001">
+<video id="video123"
+onloadstart="console.log(event.type, event)"
+onprogress="console.log(event.type, event)"
+onsuspend="console.log(event.type, event)"
+onabort="console.log(event.type, event)"
+onerror="console.log(event.type, event)"
+onemptied="console.log(event.type, event)"
+onstalled="console.log(event.type, event)"
+onloadedmetadata="console.log(event.type, event)"
+onloadeddata="console.log(event.type, event)"
+oncanplay="console.log(event.type, event)"
+oncanplaythrough="console.log(event.type, event)"
+onplaying="console.log(event.type, event)"
+onwaiting="console.log(event.type, event)"
+onseeking="console.log(event.type, event)"
+onseeked="console.log(event.type, event)"
+onended="console.log(event.type, event)"
+ondurationchange="console.log(event.type, event)"
+ontimeupdate="console.log(event.type, event)"
+onplay="myFunction();"
+onpause="console.log(event.type, event)"
+controls
+>
+  <source src="http://192.168.0.16/static/videos/video_teste.mp4" type="video/mp4"></source>
+</video>
+
+</div>
 
 <script type="text/javascript">
+	function myFunction() {
 
-MontaVideoHtml5("http://mp4.dev.swingreal.com",
-				"videohtml5/41259/4125945F1D0BE26B4474C897026704D1B88E621082015073455.mp4",
-				"video-1001",
-				"https://www.swingreal.com/videolog/30215/3021517A2CA66E19848349207D3AD80D54FA620112013111418.jpg",
-				"480",
-				"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}",
-				"2");
+		var video = $('#video123');
+		//video.src = videoFile;
+		//video.load();
+		//video.play();
+
+		
+
+	}
+// MontaVideoHtml5("http://mp4.dev.swingreal.com",
+// 				"videohtml5/41259/4125945F1D0BE26B4474C897026704D1B88E621082015073455.mp4",
+// 				"video-1001",
+// 				"https://www.swingreal.com/videolog/30215/3021517A2CA66E19848349207D3AD80D54FA620112013111418.jpg",
+// 				"480",
+// 				"30072015111257{1005BE9F-781E-4B97-BD6F-977A61B1E635}",
+// 				"2");
+// 
 </script>
 
 

@@ -148,10 +148,11 @@ class VideoController < ApplicationController
     perfil = params[:perfil]
     resultado = 1
     acessoDuplicado = 0 #inicia o acesso duplicado com false
+    range = request.headers['HTTP_RANGE']
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+3)>=Time.now)
+      acessoDuplicado = ((video.time+2)<=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
@@ -188,17 +189,23 @@ class VideoController < ApplicationController
     Rails.logger.info ("Android - #{mobile_android}")
     Rails.logger.info ("IOs - #{mobile_iphone}")
     Rails.logger.info ("Windows CE - #{mobile_windowsce}")
-    Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
+    Rails.logger.info ("Range - #{range} ")
+    Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
 
-    if resultado && (acessoDuplicado || request.headers['HTTP_RANGE'])
+    if resultado && (!acessoDuplicado || range) && video.range != range
+    #if !(resultado == '1') && ((mobile_android!=0 || mobile_iphone!=0 || mobile_windowsce!=0) || (!video.status))
 
       if !video.status
         video.status = true
         video.time = Time.now
+        video.range = range
         video.save
-      end
+      elsif video.range != range
+        video.range = range
+        video.save
+      end        
 
-      Rails.logger.info "Exibindo o video - streaming"
+      Rails.logger.info "Exbindo o video - streaming"
 
       if (mobile_iphone!=0) || ((request.headers["HTTP_RANGE"]) && !chrome && !firefox && !(mobile_android != 0 || mobile_windowsce != 0))
 
@@ -227,6 +234,7 @@ class VideoController < ApplicationController
     else
       render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
     end
+
   end
 
   def exibe_video_streaming
@@ -264,10 +272,11 @@ class VideoController < ApplicationController
     perfil = params[:perfil]
     resultado = 1
     acessoDuplicado = 0 #inicia o acesso duplicado com false
+    range = request.headers['HTTP_RANGE']
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+2)>=Time.now)
+      acessoDuplicado = ((video.time+2)<=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
@@ -304,16 +313,21 @@ class VideoController < ApplicationController
     Rails.logger.info ("Android - #{mobile_android}")
     Rails.logger.info ("IOs - #{mobile_iphone}")
     Rails.logger.info ("Windows CE - #{mobile_windowsce}")
-    Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
+    Rails.logger.info ("Range - #{range} ")
+    Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
 
-    if resultado && (acessoDuplicado || request.headers['HTTP_RANGE'])
+    if resultado && (!acessoDuplicado || range) && video.range != range
     #if !(resultado == '1') && ((mobile_android!=0 || mobile_iphone!=0 || mobile_windowsce!=0) || (!video.status))
 
       if !video.status
         video.status = true
         video.time = Time.now
+        video.range = range
         video.save
-      end
+      elsif video.range != range
+        video.range = range
+        video.save
+      end        
 
       Rails.logger.info "Exbindo o video - streaming"
 
