@@ -192,17 +192,17 @@ class VideoController < ApplicationController
     Rails.logger.info ("Range - #{range} ")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
 
-    if resultado && (!acessoDuplicado || range)
+    if resultado && (!acessoDuplicado || request.headers['HTTP_RANGE'])
     #if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
 
       if !video.status
         video.status = true
         video.time = Time.now
-        video.range = range
+      #  video.range = range
         video.save
-      elsif video.range != range
-        video.range = range
-        video.save
+      #elsif video.range != range
+      #  video.range = range
+      #  video.save
       end        
 
       Rails.logger.info "Exbindo o video - streaming"
