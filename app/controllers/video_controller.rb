@@ -192,8 +192,8 @@ class VideoController < ApplicationController
     Rails.logger.info ("Range - #{range} ")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
 
-    if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
-    #if !(resultado == '1') && ((mobile_android!=0 || mobile_iphone!=0 || mobile_windowsce!=0) || (!video.status))
+    if resultado && (!acessoDuplicado || range)
+    #if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
 
       if !video.status
         video.status = true
