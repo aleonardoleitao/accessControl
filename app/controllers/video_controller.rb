@@ -152,7 +152,7 @@ class VideoController < ApplicationController
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+6)<=Time.now)
+      acessoDuplicado = ((video.time+5)>=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
@@ -189,10 +189,11 @@ class VideoController < ApplicationController
     Rails.logger.info ("Android - #{mobile_android}")
     Rails.logger.info ("IOs - #{mobile_iphone}")
     Rails.logger.info ("Windows CE - #{mobile_windowsce}")
+    Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
     Rails.logger.info ("Range - #{range} ")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
 
-    if resultado && (!acessoDuplicado || request.headers['HTTP_RANGE'])
+    if resultado && (acessoDuplicado || request.headers['HTTP_RANGE'])
     #if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
 
       if !video.status
