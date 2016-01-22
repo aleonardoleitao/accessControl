@@ -149,10 +149,11 @@ class VideoController < ApplicationController
     resultado = 1
     acessoDuplicado = 0 #inicia o acesso duplicado com false
     range = request.headers['HTTP_RANGE']
+    validUrl = request.url.eql? request.headers['HTTP_REFERER']
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+5)>=Time.now)
+      acessoDuplicado = ((video.time+3)>=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
@@ -163,9 +164,6 @@ class VideoController < ApplicationController
 
     Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
     Rails.logger.info "Resultado da consulta - video token - #{video.status}"
-
-    #Se safari invalida autenticacao para download
-    #if safari==true || (!video.status && !(resultado == '1'))
 
     mobile_android =  "palm|blackberry|nokia|phone|midp|mobi|symbian|chtml|ericsson|minimo|audiovox|motorola|samsung|telit|upg1|windows ce|ucweb|astel|plucker|x320|x240|j2me|sgh|portable|sprint|docomo|kddi|softbank|android|mmp|pdxgw|netfront|xiino|vodafone|portalmmm|sagem|mot-|sie-|ipod|up\\.b|webos|amoi|novarra|cdm|alcatel|pocket|ipad|iphone|mobileexplorer|mobile|zune"
     mobile_iphone =  "ipod|ipad|iphone"
@@ -192,9 +190,8 @@ class VideoController < ApplicationController
     Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
     Rails.logger.info ("Range - #{range} ")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
-    Rails.logger.info (" HTTP_REFERER - #{request.headers['HTTP_REFERER']}")
 
-    if resultado && (acessoDuplicado || request.headers['HTTP_RANGE'])
+    if !validUrl && (resultado && (acessoDuplicado || request.headers['HTTP_RANGE']))
     #if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
 
       if !video.status
@@ -275,6 +272,7 @@ class VideoController < ApplicationController
     resultado = 1
     acessoDuplicado = 0 #inicia o acesso duplicado com false
     range = request.headers['HTTP_RANGE']
+    validUrl = request.url.eql? request.headers['HTTP_REFERER']
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
@@ -284,7 +282,7 @@ class VideoController < ApplicationController
 
     xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
     itens = xml.search('status').map do |item|
-      resultado = item.text
+     resultado = item.text
     end
 
     Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
@@ -318,7 +316,8 @@ class VideoController < ApplicationController
     Rails.logger.info ("Range - #{range} ")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
 
-    if resultado && (!acessoDuplicado || range) && video.range != range
+    if !validUrl && (resultado && (acessoDuplicado || request.headers['HTTP_RANGE']))
+    #if resultado && (!acessoDuplicado || range) && video.range != range
     #if !(resultado == '1') && ((mobile_android!=0 || mobile_iphone!=0 || mobile_windowsce!=0) || (!video.status))
 
       if !video.status
