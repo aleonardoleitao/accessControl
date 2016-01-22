@@ -151,6 +151,8 @@ class VideoController < ApplicationController
     range = request.headers['HTTP_RANGE']
     validUrl = request.url.eql? request.headers['HTTP_REFERER']
 
+    Rails.logger.info ("URL #{request.url} - #{request.headers['HTTP_REFERER']} ")
+
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
       acessoDuplicado = ((video.time+4)>=Time.now)
