@@ -149,9 +149,10 @@ class VideoController < ApplicationController
     resultado = 1
     acessoDuplicado = 0 #inicia o acesso duplicado com false
     range = request.headers['HTTP_RANGE']
-    validUrl = request.url.eql? request.headers['HTTP_REFERER']
+    url = request.url.gsub('http:', 'https:')
+    validUrl = url.eql? request.headers['HTTP_REFERER']
 
-    Rails.logger.info ("URL #{request.url} - #{request.headers['HTTP_REFERER']} ")
+    Rails.logger.info ("URL #{url} - #{request.headers['HTTP_REFERER']} ")
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
