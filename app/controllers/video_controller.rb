@@ -192,6 +192,7 @@ class VideoController < ApplicationController
     Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
     Rails.logger.info ("Range - #{range} ")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
+    Rails.logger.info (" HTTP_REFERER - #{request.headers['HTTP_REFERER']}")
 
     if resultado && (acessoDuplicado || request.headers['HTTP_RANGE'])
     #if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
