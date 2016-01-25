@@ -275,24 +275,28 @@ class VideoController < ApplicationController
     resultado = 1
     acessoDuplicado = 0 #inicia o acesso duplicado com false
     range = request.headers['HTTP_RANGE']
-    validUrl = request.url.eql? request.headers['HTTP_REFERER']
+    url = request.url.gsub('http:', 'https:')
+    validUrl = url.eql? request.headers['HTTP_REFERER']
+    navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(params[:nav].to_s.downcase)
+
+
+    Rails.logger.info ("navegador_habilitado - #{navegador_habilitado} ")
+
+    Rails.logger.info ("URL #{url} - #{request.headers['HTTP_REFERER']} ")
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+2)<=Time.now)
+      acessoDuplicado = ((video.time+4)>=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
     xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
     itens = xml.search('status').map do |item|
-     resultado = item.text
+      resultado = item.text
     end
 
     Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
     Rails.logger.info "Resultado da consulta - video token - #{video.status}"
-
-    #Se safari invalida autenticacao para download
-    #if safari==true || (!video.status && !(resultado == '1'))
 
     mobile_android =  "palm|blackberry|nokia|phone|midp|mobi|symbian|chtml|ericsson|minimo|audiovox|motorola|samsung|telit|upg1|windows ce|ucweb|astel|plucker|x320|x240|j2me|sgh|portable|sprint|docomo|kddi|softbank|android|mmp|pdxgw|netfront|xiino|vodafone|portalmmm|sagem|mot-|sie-|ipod|up\\.b|webos|amoi|novarra|cdm|alcatel|pocket|ipad|iphone|mobileexplorer|mobile|zune"
     mobile_iphone =  "ipod|ipad|iphone"
@@ -316,21 +320,21 @@ class VideoController < ApplicationController
     Rails.logger.info ("Android - #{mobile_android}")
     Rails.logger.info ("IOs - #{mobile_iphone}")
     Rails.logger.info ("Windows CE - #{mobile_windowsce}")
+    Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
     Rails.logger.info ("Range - #{range} ")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
 
-    if !validUrl && (resultado && (acessoDuplicado || request.headers['HTTP_RANGE']))
-    #if resultado && (!acessoDuplicado || range) && video.range != range
-    #if !(resultado == '1') && ((mobile_android!=0 || mobile_iphone!=0 || mobile_windowsce!=0) || (!video.status))
+    if !navegador_habilitado && !validUrl && (resultado && (acessoDuplicado || request.headers['HTTP_RANGE']))
+    #if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
 
       if !video.status
         video.status = true
         video.time = Time.now
-        video.range = range
+      #  video.range = range
         video.save
-      elsif video.range != range
-        video.range = range
-        video.save
+      #elsif video.range != range
+      #  video.range = range
+      #  video.save
       end        
 
       Rails.logger.info "Exbindo o video - streaming"
@@ -362,6 +366,7 @@ class VideoController < ApplicationController
     else
       render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
     end
+
   end
 
   def exibe_video_html5
