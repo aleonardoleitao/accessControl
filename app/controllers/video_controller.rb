@@ -16,6 +16,8 @@ class VideoController < ApplicationController
     require 'openssl'
     require 'digest/sha1'
 
+    user_agent = request.env['HTTP_USER_AGENT']
+
     Rails.logger.info " Token Video - #{params[:tokenvideo]} "
     token_video = params[:tokenvideo]
     video = params[:video]
@@ -38,6 +40,11 @@ class VideoController < ApplicationController
 
     if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
       navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
+    end
+
+    #Verifica se e webview
+    if !navegador_habilitado
+      navegador_habilitado = Regexp.new("wv").match(user_agent.to_s.downcase)
     end
 
     Rails.logger.info " Token Video - #{navegador_habilitado} "
@@ -330,10 +337,10 @@ class VideoController < ApplicationController
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
-    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
-    itens = xml.search('status').map do |item|
-      resultado = item.text
-    end
+    # xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
+    # itens = xml.search('status').map do |item|
+    #   resultado = item.text
+    # end
 
     Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
     Rails.logger.info "Resultado da consulta - video token - #{video.status}"

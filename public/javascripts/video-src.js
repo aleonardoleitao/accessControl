@@ -149,7 +149,6 @@ function exibeVideoStreaming(urlServer, imagem, urlCompleta, idVideo, width, per
 	div.html("");
 	var urlServer = urlServer + "/javascripts/player/"
 	var watermark_user = "https://m.swingreal.com/videolog/" + perfil +  "/watermark.png";
-	var nav = navigator.platform;
 	var valueWidth = $(window).width();
 	if (valueWidth > 480) {
 		valueWidth = 480;
@@ -158,7 +157,7 @@ function exibeVideoStreaming(urlServer, imagem, urlCompleta, idVideo, width, per
 	
 	var player = new Clappr.Player({
 		poster: imagem,
-		source: urlCompleta + "&nav=" + nav,
+		source: urlCompleta,
 		parentId: idVideo,
 		width: valueWidth,
 		height: valueHeight,
