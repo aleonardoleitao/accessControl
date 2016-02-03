@@ -12,6 +12,50 @@ class VideoController < ApplicationController
     end
   end
 
+  def gera_video_streaming
+    require 'openssl'
+    require 'digest/sha1'
+
+    Rails.logger.info " Token Video - #{params[:tokenvideo]} "
+    token_video = params[:tokenvideo]
+    video = params[:video]
+
+    #debugger
+    iv = Base64.decode64("kT+uMuPwUk2LH4cFbK0GiA==")
+    key = ["6476b3f5ec6dcaddb637e9c9654aa687"].pack("H*")
+
+    decipher = OpenSSL::Cipher::Cipher.new('aes-128-cbc')
+    decipher.decrypt
+    decipher.key = key
+    decipher.iv = iv
+    text = decipher.update(Base64.strict_decode64(token_video)) 
+    text << decipher.final
+
+    puts "encrypted: #{text}\n"
+    #encrypted_text = Base64.strict_encode64(text)
+    
+    token_video = text
+
+    if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
+      navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
+    end
+
+    Rails.logger.info " Token Video - #{navegador_habilitado} "
+
+    if !navegador_habilitado
+      tokenGerado = get_secure_token(params[:caminho]).to_s
+      @video = Video.new({path: params[:caminho],status:false,token:tokenGerado})
+      @video.save
+      respond_to do |format|
+        format.json { render json: { path: params[:caminho], token: tokenGerado }}
+      end
+    else
+      respond_to do |format|
+        format.json { render json: { path: "", token: "" }}
+      end
+    end
+  end
+
   # def exibe_video
 
   #   user_agent = request.env['HTTP_USER_AGENT']
@@ -277,10 +321,6 @@ class VideoController < ApplicationController
     range = request.headers['HTTP_RANGE']
     url = request.url.gsub('http:', 'https:')
     validUrl = url.eql? request.headers['HTTP_REFERER']
-    navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(params[:nav].to_s.downcase)
-
-
-    Rails.logger.info ("navegador_habilitado - #{navegador_habilitado} ")
 
     Rails.logger.info ("URL #{url} - #{request.headers['HTTP_REFERER']} ")
 
@@ -324,7 +364,7 @@ class VideoController < ApplicationController
     Rails.logger.info ("Range - #{range} ")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
 
-    if !navegador_habilitado && !validUrl && (resultado && (acessoDuplicado || request.headers['HTTP_RANGE']))
+    if !validUrl && (resultado && (acessoDuplicado || request.headers['HTTP_RANGE']))
     #if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
 
       if !video.status
