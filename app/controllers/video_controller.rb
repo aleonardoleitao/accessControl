@@ -17,7 +17,7 @@ class VideoController < ApplicationController
     require 'digest/sha1'
 
     user_agent = request.env['HTTP_USER_AGENT']
-
+    Rails.logger.info " User Agent - #{user_agent} "
     Rails.logger.info " Token Video - #{params[:tokenvideo]} "
     token_video = params[:tokenvideo]
     video = params[:video]
