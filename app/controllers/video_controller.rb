@@ -17,6 +17,9 @@ class VideoController < ApplicationController
     require 'digest/sha1'
 
     user_agent = request.env['HTTP_USER_AGENT']
+
+    Rails.logger.info " request - #{request} "
+
     Rails.logger.info " User Agent - #{user_agent} "
     Rails.logger.info " Token Video - #{params[:tokenvideo]} "
     token_video = params[:tokenvideo]
@@ -333,7 +336,7 @@ class VideoController < ApplicationController
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+4)>=Time.now)
+      acessoDuplicado = ((video.time+2)>=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
