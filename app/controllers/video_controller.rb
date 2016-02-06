@@ -173,18 +173,18 @@ class VideoController < ApplicationController
     chrome, safari, firefox = false
     diretorio = "/mnt/Vids"
 
-    Rails.logger.info "UserAgente - #{user_agent}"
+    #Rails.logger.info "UserAgente - #{user_agent}"
     if user_agent =~ /Chrome/
       chrome = true
-      Rails.logger.info "Browser Chrome"
+      #Rails.logger.info "Browser Chrome"
     end
     if user_agent =~ /QuickTime/
       safari = true
-      Rails.logger.info "Browser QuickTime"
+      #Rails.logger.info "Browser QuickTime"
     end
     if user_agent =~ /Firefox/
       firefox = true
-      Rails.logger.info "Browser Firefox"
+      #Rails.logger.info "Browser Firefox"
     end
 
     file_name = params[:caminho2] + ".mp4"
@@ -194,7 +194,7 @@ class VideoController < ApplicationController
     file_path = File.join([diretorio, params[:caminho1], params[:caminho2] + ".mp4"])
     
 
-    Rails.logger.info "Iniciando a consulta no exibe video com os parametros - #{params}"
+    #Rails.logger.info "Iniciando a consulta no exibe video com os parametros - #{params}"
 
     token = params[:token] + "&e=" + params[:e]
     video = Video.find_by_token(token)
@@ -206,12 +206,12 @@ class VideoController < ApplicationController
     url = request.url.gsub('http:', 'https:')
     validUrl = url.eql? request.headers['HTTP_REFERER']
 
-    Rails.logger.info ("URL #{url} - #{request.headers['HTTP_REFERER']} ")
+    #Rails.logger.info ("URL #{url} - #{request.headers['HTTP_REFERER']} ")
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
       acessoDuplicado = ((video.time+4)>=Time.now)
-      Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
+      #Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
     xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
@@ -219,8 +219,8 @@ class VideoController < ApplicationController
       resultado = item.text
     end
 
-    Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
-    Rails.logger.info "Resultado da consulta - video token - #{video.status}"
+    #Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
+    #Rails.logger.info "Resultado da consulta - video token - #{video.status}"
 
     mobile_android =  "palm|blackberry|nokia|phone|midp|mobi|symbian|chtml|ericsson|minimo|audiovox|motorola|samsung|telit|upg1|windows ce|ucweb|astel|plucker|x320|x240|j2me|sgh|portable|sprint|docomo|kddi|softbank|android|mmp|pdxgw|netfront|xiino|vodafone|portalmmm|sagem|mot-|sie-|ipod|up\\.b|webos|amoi|novarra|cdm|alcatel|pocket|ipad|iphone|mobileexplorer|mobile|zune"
     mobile_iphone =  "ipod|ipad|iphone"
@@ -240,13 +240,13 @@ class VideoController < ApplicationController
       mobile_windowsce = 0 
     end
 
-    Rails.logger.info ("UserAgente - #{user_agent} ")
-    Rails.logger.info ("Android - #{mobile_android}")
-    Rails.logger.info ("IOs - #{mobile_iphone}")
-    Rails.logger.info ("Windows CE - #{mobile_windowsce}")
-    Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
-    Rails.logger.info ("Range - #{range} ")
-    Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
+    # Rails.logger.info ("UserAgente - #{user_agent} ")
+    # Rails.logger.info ("Android - #{mobile_android}")
+    # Rails.logger.info ("IOs - #{mobile_iphone}")
+    # Rails.logger.info ("Windows CE - #{mobile_windowsce}")
+    # Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
+    # Rails.logger.info ("Range - #{range} ")
+    # Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
 
     if !validUrl && (resultado && (acessoDuplicado || request.headers['HTTP_RANGE']))
     #if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
@@ -261,7 +261,7 @@ class VideoController < ApplicationController
       #  video.save
       end        
 
-      Rails.logger.info "Exbindo o video - streaming"
+      #Rails.logger.info "Exbindo o video - streaming"
 
       if (mobile_iphone!=0) || ((request.headers["HTTP_RANGE"]) && !chrome && !firefox && !(mobile_android != 0 || mobile_windowsce != 0))
 
@@ -273,18 +273,18 @@ class VideoController < ApplicationController
         response.header["Accept-Ranges"]=  "bytes"
         response.header["Content-Range"] = "bytes #{bytes.begin}-#{bytes.end}/#{size}"
 
-        Rails.logger.info "bytes #{bytes.begin}-#{bytes.end}/#{size}"
-        Rails.logger.info "Iniciando o envio IOS"
+        #Rails.logger.info "bytes #{bytes.begin}-#{bytes.end}/#{size}"
+        #Rails.logger.info "Iniciando o envio IOS"
         send_data IO.binread(file_path,length, offset), :type => "video/mp4", :stream => true, :x_sendfile => true, :disposition => 'inline', :file_name => file_name, :buffer_size  =>  2048
-        Rails.logger.info "Arquivo enviado IOS"
+        #Rails.logger.info "Arquivo enviado IOS"
 
       else
-        Rails.logger.info "Exibindo videos apenas para o chrome e firefox"
-        Rails.logger.info file_path
+        #Rails.logger.info "Exibindo videos apenas para o chrome e firefox"
+        #Rails.logger.info file_path
         respond_to do |format|
           format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4')}
         end
-        Rails.logger.info "Finalizando videos do chrome"
+        #Rails.logger.info "Finalizando videos do chrome"
       end
 
     else
@@ -373,6 +373,9 @@ class VideoController < ApplicationController
     Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
     Rails.logger.info ("Range - #{range} ")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
+
+    #criar uma validacao
+    #bytes=0-
 
     if !validUrl && (resultado && (acessoDuplicado || request.headers['HTTP_RANGE']))
     #if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
