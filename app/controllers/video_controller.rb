@@ -408,12 +408,18 @@ class VideoController < ApplicationController
         Rails.logger.info "Arquivo enviado IOS"
 
       else
-        Rails.logger.info "Exibindo videos apenas para o chrome e firefox"
-        Rails.logger.info file_path
-        respond_to do |format|
-          format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4')}
+
+        if mobile_windowsce!=0 && request.headers["HTTP_RANGE"] != 'bytes=0-'        
+          Rails.logger.info "Exibindo videos apenas para o chrome e firefox"
+          Rails.logger.info file_path
+          respond_to do |format|
+            format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4')}
+          end
+          Rails.logger.info "Finalizando videos do chrome"
+        else
+          render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
         end
-        Rails.logger.info "Finalizando videos do chrome"
+        
       end
 
     else
@@ -470,7 +476,7 @@ class VideoController < ApplicationController
 
     mobile_android =  "palm|blackberry|nokia|phone|midp|mobi|symbian|chtml|ericsson|minimo|audiovox|motorola|samsung|telit|upg1|windows ce|ucweb|astel|plucker|x320|x240|j2me|sgh|portable|sprint|docomo|kddi|softbank|android|mmp|pdxgw|netfront|xiino|vodafone|portalmmm|sagem|mot-|sie-|ipod|up\\.b|webos|amoi|novarra|cdm|alcatel|pocket|ipad|iphone|mobileexplorer|mobile|zune"
     mobile_iphone =  "ipod|ipad|iphone"
-    mobile_windowsce = "windows ce"
+    mobile_windowsce = "windows ce|iemobile"
 
     mobile_android = Regexp.new(mobile_android).match(user_agent.to_s.downcase)
     mobile_iphone = Regexp.new(mobile_iphone).match(user_agent.to_s.downcase)
