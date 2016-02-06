@@ -409,17 +409,18 @@ class VideoController < ApplicationController
 
       else
 
-        if mobile_windowsce!=0 && request.headers["HTTP_RANGE"] != 'bytes=0-'        
-          Rails.logger.info "Exibindo videos apenas para o chrome e firefox"
+        Rails.logger.info "Teste para verificar se e WP - #{mobile_windowsce!=0}"
+        if mobile_windowsce!=0 && request.headers["HTTP_RANGE"] == "bytes=0-"
+          render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+        else
+          Rails.logger.info "Exibindo videos apenas para WP/Android"
           Rails.logger.info file_path
           respond_to do |format|
             format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4')}
           end
-          Rails.logger.info "Finalizando videos do chrome"
-        else
-          render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+          Rails.logger.info "Finalizando videos do chrome"          
         end
-        
+
       end
 
     else
