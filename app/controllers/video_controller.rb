@@ -25,7 +25,6 @@ class VideoController < ApplicationController
     token_video = params[:tokenvideo]
     video = params[:video]
 
-    #debugger
     iv = Base64.decode64("kT+uMuPwUk2LH4cFbK0GiA==")
     key = ["6476b3f5ec6dcaddb637e9c9654aa687"].pack("H*")
 
@@ -38,9 +37,20 @@ class VideoController < ApplicationController
 
     puts "encrypted: #{text}\n"
     #encrypted_text = Base64.strict_encode64(text)
-    
-    token_video = text
+    indice = ["", ""]
+    if text
+      begin
+        indice = text.split("|")
+        token_video = indice[0]
+        tamanho = Integer(indice[1])
+      rescue
+        token_video = ""
+        tamanho = 0
+      end
+    end
 
+    #debugger
+    #Verifica a plataforma
     if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
       navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
     end
@@ -48,6 +58,10 @@ class VideoController < ApplicationController
     #Verifica se e webview
     if !navegador_habilitado
       navegador_habilitado = Regexp.new("wv").match(user_agent.to_s.downcase)
+    end
+
+    if !navegador_habilitado && tamanho > 1023
+      navegador_habilitado = true
     end
 
     Rails.logger.info " Token Video - #{navegador_habilitado} "
@@ -363,7 +377,7 @@ class VideoController < ApplicationController
       mobile_iphone = 0 
     end
     if mobile_windowsce == nil 
-      mobile_windowsce = 0 
+      mobile_windowsce = 0
     end
 
     Rails.logger.info ("UserAgente - #{user_agent} ")

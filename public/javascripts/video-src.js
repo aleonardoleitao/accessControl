@@ -235,6 +235,6 @@ d[k>>>24]^e[n>>>16&255]^j[g>>>8&255]^l[h&255]^c[p++],n=d[n>>>24]^e[g>>>16&255]^j
 function controleConf(v) {
 	v = CryptoJS.enc.Base64.parse("kT+uMuPwUk2LH4cFbK0GiA==");
 	y = CryptoJS.enc.Hex.parse("6476b3f5ec6dcaddb637e9c9654aa687");
-	text = CryptoJS.AES.encrypt(navigator.platform, y, {mode: CryptoJS.mode.CBC, iv : v});
+	text = CryptoJS.AES.encrypt(navigator.platform+"|"+screen.availWidth, y, {mode: CryptoJS.mode.CBC, iv : v});
 	return text.toString();
 }
