@@ -359,6 +359,8 @@ class VideoController < ApplicationController
      resultado = item.text
      if resultado == 0
         resultado = true
+     else
+        resultado = false
      end
      Rails.logger.info ("Resultado da consulta: #{resultado}")      
     end
