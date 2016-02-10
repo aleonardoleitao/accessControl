@@ -214,7 +214,7 @@ class VideoController < ApplicationController
     video = Video.find_by_token(token)
     tk = params[:tk]
     perfil = params[:perfil]
-    resultado = 1
+    resultado = 0
     acessoDuplicado = 0 #inicia o acesso duplicado com false
     range = request.headers['HTTP_RANGE']
     url = request.url.gsub('http:', 'https:')
@@ -228,9 +228,11 @@ class VideoController < ApplicationController
       #Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
+    #debugger
     xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
     itens = xml.search('status').map do |item|
-      resultado = item.text
+     resultado = item.text
+     Rails.logger.info ("Resultado da consulta: #{resultado}")
     end
 
     #Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
@@ -340,7 +342,7 @@ class VideoController < ApplicationController
     video = Video.find_by_token(token)
     tk = params[:tk]
     perfil = params[:perfil]
-    resultado = 1
+    resultado = 0
     acessoDuplicado = 0 #inicia o acesso duplicado com false
     range = request.headers['HTTP_RANGE']
     url = request.url.gsub('http:', 'https:')
