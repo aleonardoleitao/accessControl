@@ -232,7 +232,7 @@ class VideoController < ApplicationController
     xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
     itens = xml.search('status').map do |item|
      resultado = item.text
-     Rails.logger.info ("Resultado da consulta: #{item.text}")
+     Rails.logger.info ("Resultado da consulta: #{resultado}")
     end
 
     #Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
