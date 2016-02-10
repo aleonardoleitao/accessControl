@@ -340,7 +340,7 @@ class VideoController < ApplicationController
     video = Video.find_by_token(token)
     tk = params[:tk]
     perfil = params[:perfil]
-    resultado = 1
+    resultado = false
     acessoDuplicado = 0 #inicia o acesso duplicado com false
     range = request.headers['HTTP_RANGE']
     url = request.url.gsub('http:', 'https:')
@@ -357,6 +357,9 @@ class VideoController < ApplicationController
     xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
     itens = xml.search('status').map do |item|
      resultado = item.text
+     if resultado == 0
+        resultado = true
+     end
      Rails.logger.info ("Resultado da consulta: #{resultado}")      
     end
 
