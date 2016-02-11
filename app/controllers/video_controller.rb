@@ -358,7 +358,7 @@ class VideoController < ApplicationController
     itens = xml.search('status').map do |item|
      resultado = item.text
      Rails.logger.info ("Resultado da consulta1: #{resultado}")
-     if resultado == 0
+     if resultado == 0 && resultado == "0"
         resultado = true
      else
         resultado = false
