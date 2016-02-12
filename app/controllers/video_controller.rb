@@ -32,6 +32,9 @@ class VideoController < ApplicationController
     decipher.decrypt
     decipher.key = key
     decipher.iv = iv
+
+    Rails.logger.info "token_video: #{token_video}"
+
     text = decipher.update(Base64.strict_decode64(token_video)) 
     text << decipher.final
 
