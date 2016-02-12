@@ -34,7 +34,9 @@ class VideoController < ApplicationController
     decipher.iv = iv
 
     Rails.logger.info "token_video: #{token_video}"
-
+    if token_video == ""
+      token_video = "Iphone|600"
+    end
     text = decipher.update(Base64.strict_decode64(token_video)) 
     text << decipher.final
 
