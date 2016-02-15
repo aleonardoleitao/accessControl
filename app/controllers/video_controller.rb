@@ -56,6 +56,8 @@ class VideoController < ApplicationController
 
     Rails.logger.info " tamanho - #{tamanho} "
     Rails.logger.info " token_video - #{token_video} "
+
+    ipad = Regexp.new("ipad").match(token_video.to_s.downcase)
     
     #debugger
     #Verifica a plataforma
@@ -69,7 +71,15 @@ class VideoController < ApplicationController
     end
 
     if !navegador_habilitado && tamanho > 1023
-      navegador_habilitado = true
+      if ipad
+        if tamanho < 1521
+          navegador_habilitado = true
+        else
+          navegador_habilitado = false
+        end
+      else
+        navegador_habilitado = true
+      end
     end
 
     Rails.logger.info " Token Video - #{navegador_habilitado} "
@@ -132,6 +142,8 @@ class VideoController < ApplicationController
 
     Rails.logger.info " tamanho - #{tamanho} "
     Rails.logger.info " token_video - #{token_video} "
+
+    ipad = Regexp.new("ipad").match(token_video.to_s.downcase)
     
     #debugger
     #Verifica a plataforma
@@ -145,7 +157,15 @@ class VideoController < ApplicationController
     end
 
     if !navegador_habilitado && tamanho > 1023
-      navegador_habilitado = true
+      if ipad
+        if tamanho < 1521
+          navegador_habilitado = true
+        else
+          navegador_habilitado = false
+        end
+      else
+        navegador_habilitado = true
+      end
     end
 
     Rails.logger.info " Token Video - #{navegador_habilitado} "
