@@ -73,9 +73,9 @@ class VideoController < ApplicationController
     if !navegador_habilitado && tamanho > 1023
       if ipad
         if tamanho < 1521
-          navegador_habilitado = true
-        else
           navegador_habilitado = false
+        else
+          navegador_habilitado = true
         end
       else
         navegador_habilitado = true
@@ -159,9 +159,9 @@ class VideoController < ApplicationController
     if !navegador_habilitado && tamanho > 1023
       if ipad
         if tamanho < 1521
-          navegador_habilitado = true
-        else
           navegador_habilitado = false
+        else
+          navegador_habilitado = true
         end
       else
         navegador_habilitado = true
