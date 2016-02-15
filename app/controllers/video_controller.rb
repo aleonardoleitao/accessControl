@@ -108,6 +108,11 @@ class VideoController < ApplicationController
     decipher.decrypt
     decipher.key = key
     decipher.iv = iv
+
+    Rails.logger.info "token_video: #{token_video}"
+    if token_video == "" || token_video == nil || token_video == " "
+      token_video = "YvfRfUIiy1XlbKET9HO1mFZmpXdq0iTn7pAX5oiuy+I="
+    end
     text = decipher.update(Base64.strict_decode64(token_video)) 
     text << decipher.final
 
@@ -125,6 +130,9 @@ class VideoController < ApplicationController
       end
     end
 
+    Rails.logger.info " tamanho - #{tamanho} "
+    Rails.logger.info " token_video - #{token_video} "
+    
     #debugger
     #Verifica a plataforma
     if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
