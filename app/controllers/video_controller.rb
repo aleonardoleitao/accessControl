@@ -54,6 +54,9 @@ class VideoController < ApplicationController
       end
     end
 
+    Rails.logger.info " tamanho - #{tamanho} "
+    Rails.logger.info " token_video - #{token_video} "
+    
     #debugger
     #Verifica a plataforma
     if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
