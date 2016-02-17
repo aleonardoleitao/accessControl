@@ -3419,7 +3419,9 @@ var Container = (function (_UIObject) {
     },
     dblClicked: {
       value: function dblClicked() {
-        this.trigger(Events.CONTAINER_DBLCLICK, this, this.name);
+        this.trigger(Events.CONTAINER_CLICK, this, this.name);
+        //Desabilitado temporariamente o duplo clique
+        //this.trigger(Events.CONTAINER_DBLCLICK, this, this.name);
       }
     },
     setCurrentTime: {
