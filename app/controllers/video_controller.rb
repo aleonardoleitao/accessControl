@@ -70,6 +70,10 @@ class VideoController < ApplicationController
       navegador_habilitado = Regexp.new("wv").match(user_agent.to_s.downcase)
     end
 
+    if !navegador_habilitado
+      navegador_habilitado = Regexp.new("nexus 5").match(user_agent.to_s.downcase)
+    end
+
     if !navegador_habilitado && tamanho > 1023
       if ipad
         if tamanho < 1521
@@ -158,7 +162,7 @@ class VideoController < ApplicationController
 
     if !navegador_habilitado
       navegador_habilitado = Regexp.new("nexus 5").match(user_agent.to_s.downcase)
-    end    
+    end
 
     if !navegador_habilitado && tamanho > 1023
       if ipad
@@ -332,7 +336,7 @@ class VideoController < ApplicationController
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+2)>=Time.now)
+      acessoDuplicado = ((video.time+1)>=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
@@ -479,7 +483,7 @@ class VideoController < ApplicationController
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+2)>=Time.now)
+      acessoDuplicado = ((video.time+1)>=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
