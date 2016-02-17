@@ -156,6 +156,10 @@ class VideoController < ApplicationController
       navegador_habilitado = Regexp.new("wv").match(user_agent.to_s.downcase)
     end
 
+    if !navegador_habilitado
+      navegador_habilitado = Regexp.new("nexus 5").match(user_agent.to_s.downcase)
+    end    
+
     if !navegador_habilitado && tamanho > 1023
       if ipad
         if tamanho < 1521
