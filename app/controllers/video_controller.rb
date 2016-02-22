@@ -336,7 +336,7 @@ class VideoController < ApplicationController
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+2)>=Time.now)
+      acessoDuplicado = ((video.time+6)>=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
@@ -424,12 +424,28 @@ class VideoController < ApplicationController
         if mobile_windowsce!=0 && request.headers["HTTP_RANGE"] == "bytes=0-"
           render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
         else
-          Rails.logger.info "Exibindo videos apenas para WP/Android"
-          Rails.logger.info file_path
-          respond_to do |format|
-            format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4')}
-          end
-          Rails.logger.info "Finalizando videos do chrome"          
+
+          achou = Regexp.new("nexus 4|nexus 5").match(user_agent.to_s.downcase)
+          if range.to_s.length==0 && achou.to_s.length>0
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+            Rails.logger.info "Video bloqueado - Android - Nexus 4/5"
+
+          elsif mobile_android.to_s.length>0 && range.to_s.length==0 && (Regexp.new("dalvik").match(user_agent.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando android e range vazio e bytes=0-0"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          elsif mobile_android.to_s.length>0 && range == "bytes=0-0"
+            Rails.logger.info "Bloqueio quando android e range passado e bytes=0-0"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          else
+            Rails.logger.info "Exibindo videos apenas para WP/Android"
+            Rails.logger.info file_path
+            respond_to do |format|
+              format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4')}
+            end
+            Rails.logger.info "Finalizando videos do chrome"
+          end          
         end
 
       end
@@ -483,21 +499,20 @@ class VideoController < ApplicationController
 
     if video.time
       #Verifica se o usuario acessou essa mesma url 2 vezes
-      acessoDuplicado = ((video.time+2)>=Time.now)
+      acessoDuplicado = ((video.time+10)>=Time.now)
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
-    resultado = true
-    # xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
-    # itens = xml.search('status').map do |item|
-    #  resultado = item.text
-    #  if resultado == 0 || resultado == "0"
-    #     resultado = true
-    #  else
-    #     resultado = false
-    #  end
-    #  Rails.logger.info ("Resultado da consulta: #{resultado}")      
-    # end
+    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
+    itens = xml.search('status').map do |item|
+     resultado = item.text
+     if resultado == 0 || resultado == "0"
+        resultado = true
+     else
+        resultado = false
+     end
+     Rails.logger.info ("Resultado da consulta: #{resultado}")      
+    end
 
     Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
     Rails.logger.info "Resultado da consulta - video token - #{video.status}"
@@ -572,12 +587,28 @@ class VideoController < ApplicationController
         if mobile_windowsce!=0 && request.headers["HTTP_RANGE"] == "bytes=0-"
           render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
         else
-          Rails.logger.info "Exibindo videos apenas para WP/Android"
-          Rails.logger.info file_path
-          respond_to do |format|
-            format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4')}
-          end
-          Rails.logger.info "Finalizando videos do chrome"          
+
+          achou = Regexp.new("nexus 4|nexus 5").match(user_agent.to_s.downcase)
+          if range.to_s.length==0 && achou.to_s.length>0
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+            Rails.logger.info "Video bloqueado - Android - Nexus 4/5"
+
+          elsif mobile_android.to_s.length>0 && range.to_s.length==0 && (Regexp.new("dalvik").match(user_agent.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando android e range vazio e bytes=0-0"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          elsif mobile_android.to_s.length>0 && range == "bytes=0-0"
+            Rails.logger.info "Bloqueio quando android e range passado e bytes=0-0"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          else
+            Rails.logger.info "Exibindo videos apenas para WP/Android"
+            Rails.logger.info file_path
+            respond_to do |format|
+              format.mp4 { send_file(file_path, :disposition => 'inline', :stream => true, :file_name => file_name, :type => 'video/mp4')}
+            end
+            Rails.logger.info "Finalizando videos do chrome"
+          end          
         end
 
       end
