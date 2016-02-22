@@ -503,16 +503,17 @@ class VideoController < ApplicationController
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
-    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
-    itens = xml.search('status').map do |item|
-     resultado = item.text
-     if resultado == 0 || resultado == "0"
-        resultado = true
-     else
-        resultado = false
-     end
-     Rails.logger.info ("Resultado da consulta: #{resultado}")      
-    end
+    resultado = true
+    # xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
+    # itens = xml.search('status').map do |item|
+    #  resultado = item.text
+    #  if resultado == 0 || resultado == "0"
+    #     resultado = true
+    #  else
+    #     resultado = false
+    #  end
+    #  Rails.logger.info ("Resultado da consulta: #{resultado}")      
+    # end
 
     Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
     Rails.logger.info "Resultado da consulta - video token - #{video.status}"
