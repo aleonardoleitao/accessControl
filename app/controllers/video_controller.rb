@@ -381,9 +381,6 @@ class VideoController < ApplicationController
     Rails.logger.info ("Range - #{range} ")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
 
-    #criar uma validacao
-    #bytes=0-
-
     if !validUrl && (resultado && (acessoDuplicado || request.headers['HTTP_RANGE']))
     #if resultado && (!acessoDuplicado || range) && (!acessoDuplicado || video.range != range)
 
@@ -440,7 +437,11 @@ class VideoController < ApplicationController
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           elsif mobile_android.to_s.length>0 && range.to_s.length==0 && (Regexp.new("android 4.2.2; htc one x build").match(user_agent.to_s.downcase)).to_s.length>0
-            Rails.logger.info "Bloqueio quando android e range vazio e bytes=0-0"
+            Rails.logger.info "Bloqueio quando for android e range vazio e bytes=0-0"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          elsif range == "bytes=0-" && (Regexp.new("dalvik").match(user_agent.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando for android e range bytes=0-"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           else
