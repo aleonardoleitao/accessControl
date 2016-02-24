@@ -340,6 +340,7 @@ class VideoController < ApplicationController
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
+    #resultado = true
     xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
     itens = xml.search('status').map do |item|
      resultado = item.text
@@ -438,6 +439,10 @@ class VideoController < ApplicationController
             Rails.logger.info "Bloqueio quando android e range passado e bytes=0-0"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
+          elsif mobile_android.to_s.length>0 && range.to_s.length==0 && (Regexp.new("android 4.2.2; htc one X build").match(user_agent.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando android e range vazio e bytes=0-0"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
           else
             Rails.logger.info "Exibindo videos apenas para WP/Android"
             Rails.logger.info file_path
@@ -503,17 +508,17 @@ class VideoController < ApplicationController
       Rails.logger.info "Video.time: #{video.time} Time.now: #{Time.now} - acessoDuplicado: #{acessoDuplicado}"      
     end
 
-    resultado = true
-    # xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
-    # itens = xml.search('status').map do |item|
-    #  resultado = item.text
-    #  if resultado == 0 || resultado == "0"
-    #     resultado = true
-    #  else
-    #     resultado = false
-    #  end
-    #  Rails.logger.info ("Resultado da consulta: #{resultado}")      
-    # end
+    #resultado = true
+    xml = Nokogiri::XML(open('http://ws.conecte.us/index.asp?id=' + perfil + '&acao=auth_mp4&token=' + URI::encode(tk)))
+    itens = xml.search('status').map do |item|
+     resultado = item.text
+     if resultado == 0 || resultado == "0"
+        resultado = true
+     else
+        resultado = false
+     end
+     Rails.logger.info ("Resultado da consulta: #{resultado}")      
+    end
 
     Rails.logger.info "Resultado da consulta - webserver - #{resultado}"
     Rails.logger.info "Resultado da consulta - video token - #{video.status}"
@@ -600,6 +605,10 @@ class VideoController < ApplicationController
 
           elsif mobile_android.to_s.length>0 && range == "bytes=0-0"
             Rails.logger.info "Bloqueio quando android e range passado e bytes=0-0"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          elsif mobile_android.to_s.length>0 && range.to_s.length==0 && (Regexp.new("android 4.2.2; htc one X build").match(user_agent.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando android e range vazio e bytes=0-0"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           else
