@@ -357,7 +357,7 @@ class VideoController < ApplicationController
 
     mobile_android =  "palm|blackberry|nokia|phone|midp|mobi|symbian|chtml|ericsson|minimo|audiovox|motorola|samsung|telit|upg1|windows ce|ucweb|astel|plucker|x320|x240|j2me|sgh|portable|sprint|docomo|kddi|softbank|android|mmp|pdxgw|netfront|xiino|vodafone|portalmmm|sagem|mot-|sie-|ipod|up\\.b|webos|amoi|novarra|cdm|alcatel|pocket|ipad|iphone|mobileexplorer|mobile|zune"
     mobile_iphone =  "ipod|ipad|iphone"
-    mobile_windowsce = "windows ce|wmfsdk|edge|iemobile"
+    mobile_windowsce = "windows ce|wmfsdk|edge|iemobile|windows mobile|windows"
 
     mobile_android = Regexp.new(mobile_android).match(user_agent.to_s.downcase)
     mobile_iphone = Regexp.new(mobile_iphone).match(user_agent.to_s.downcase)
@@ -525,7 +525,7 @@ class VideoController < ApplicationController
 
     mobile_android =  "palm|blackberry|nokia|phone|midp|mobi|symbian|chtml|ericsson|minimo|audiovox|motorola|samsung|telit|upg1|windows ce|ucweb|astel|plucker|x320|x240|j2me|sgh|portable|sprint|docomo|kddi|softbank|android|mmp|pdxgw|netfront|xiino|vodafone|portalmmm|sagem|mot-|sie-|ipod|up\\.b|webos|amoi|novarra|cdm|alcatel|pocket|ipad|iphone|mobileexplorer|mobile|zune"
     mobile_iphone =  "ipod|ipad|iphone"
-    mobile_windowsce = "windows ce|wmfsdk|edge|iemobile"
+    mobile_windowsce = "windows ce|wmfsdk|edge|iemobile|windows mobile|windows"
 
     mobile_android = Regexp.new(mobile_android).match(user_agent.to_s.downcase)
     mobile_iphone = Regexp.new(mobile_iphone).match(user_agent.to_s.downcase)
