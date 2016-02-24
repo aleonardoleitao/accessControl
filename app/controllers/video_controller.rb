@@ -82,7 +82,7 @@ class VideoController < ApplicationController
           navegador_habilitado = true
         end
       else
-        navegador_habilitado = true
+        #navegador_habilitado = true
       end
     end
 
@@ -172,7 +172,7 @@ class VideoController < ApplicationController
           navegador_habilitado = true
         end
       else
-        navegador_habilitado = true
+        #navegador_habilitado = true
       end
     end
 
