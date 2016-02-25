@@ -626,7 +626,6 @@ class VideoController < ApplicationController
           elsif (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length>0
             Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
-
           else
             Rails.logger.info "Exibindo videos apenas para WP/Android"
             Rails.logger.info file_path
