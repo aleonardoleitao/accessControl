@@ -420,6 +420,7 @@ class VideoController < ApplicationController
 
         Rails.logger.info "Teste para verificar se e WP - #{mobile_windowsce!=0}"
         if mobile_windowsce!=0 && request.headers["HTTP_RANGE"] == "bytes=0-"
+          Rails.logger.info "Bloqueio para WP - Range : #{mobile_windowsce}"
           render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
         else
 
@@ -442,6 +443,10 @@ class VideoController < ApplicationController
 
           elsif range == "bytes=0-" && (Regexp.new("dalvik").match(user_agent.to_s.downcase)).to_s.length>0
             Rails.logger.info "Bloqueio quando for android e range bytes=0-"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          elsif range.to_s.length==0 && user_agent=="NativeHost" && acessoDuplicado == true
+            Rails.logger.info "Bloqueio quando for android e range vazio e bytes=0-0"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           else
@@ -589,6 +594,7 @@ class VideoController < ApplicationController
 
         Rails.logger.info "Teste para verificar se e WP - #{mobile_windowsce!=0}"
         if mobile_windowsce!=0 && request.headers["HTTP_RANGE"] == "bytes=0-"
+          Rails.logger.info "Bloqueio para WP - Range : #{mobile_windowsce}"
           render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
         else
 
@@ -611,6 +617,10 @@ class VideoController < ApplicationController
 
           elsif range == "bytes=0-" && (Regexp.new("dalvik").match(user_agent.to_s.downcase)).to_s.length>0
             Rails.logger.info "Bloqueio quando for android e range bytes=0-"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          elsif range.to_s.length==0 && user_agent=="NativeHost" && acessoDuplicado == true
+            Rails.logger.info "Bloqueio quando for android e range vazio e bytes=0-0"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           else
