@@ -446,7 +446,7 @@ class VideoController < ApplicationController
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           elsif range.to_s.length==0 && user_agent=="NativeHost" && acessoDuplicado == true
-            Rails.logger.info "Bloqueio quando for android e range vazio e bytes=0-0"
+            Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           else
@@ -620,7 +620,7 @@ class VideoController < ApplicationController
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           elsif range.to_s.length==0 && user_agent=="NativeHost" && acessoDuplicado == true
-            Rails.logger.info "Bloqueio quando for android e range vazio e bytes=0-0"
+            Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           else
