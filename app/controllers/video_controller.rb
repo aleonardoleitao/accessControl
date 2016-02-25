@@ -67,7 +67,7 @@ class VideoController < ApplicationController
 
     #Verifica se e webview
     if !navegador_habilitado
-      navegador_habilitado = Regexp.new("wv").match(user_agent.to_s.downcase)
+      navegador_habilitado = Regexp.new("wv|turbodl").match(user_agent.to_s.downcase)
     end
 
     if !navegador_habilitado
@@ -157,7 +157,7 @@ class VideoController < ApplicationController
 
     #Verifica se e webview
     if !navegador_habilitado
-      navegador_habilitado = Regexp.new("wv").match(user_agent.to_s.downcase)
+      navegador_habilitado = Regexp.new("wv|turbodl").match(user_agent.to_s.downcase)
     end
 
     if !navegador_habilitado
