@@ -7686,7 +7686,7 @@ var GoogleAnalytics = (function (_ContainerPlugin) {
     },
     onEnded: {
       value: function onEnded() {
-        this.push(["Video", "Ended", this.container.playback.src]);
+        this.push(["Video", "Ended", this.container.playback.src+"&rep"]);
       }
     },
     onBuffering: {
