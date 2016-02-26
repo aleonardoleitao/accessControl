@@ -398,19 +398,25 @@ class VideoController < ApplicationController
 
       if (mobile_iphone!=0) || ((request.headers["HTTP_RANGE"]) && !chrome && !firefox && !(mobile_android != 0 || mobile_windowsce != 0))
 
-        if range != "bytes=0-" || (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length==0
-          size = File.size(file_path)
-          bytes = Rack::Utils.byte_ranges(request.headers, size)[0]
-          offset = bytes.begin
-          length = bytes.end - bytes.begin + 1
+        if range != "bytes=0-"
 
-          response.header["Accept-Ranges"]=  "bytes"
-          response.header["Content-Range"] = "bytes #{bytes.begin}-#{bytes.end}/#{size}"
+          if (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length==0
+            size = File.size(file_path)
+            bytes = Rack::Utils.byte_ranges(request.headers, size)[0]
+            offset = bytes.begin
+            length = bytes.end - bytes.begin + 1
 
-          Rails.logger.info "bytes #{bytes.begin}-#{bytes.end}/#{size}"
-          Rails.logger.info "Iniciando o envio IOS"
-          send_data IO.binread(file_path,length, offset), :type => "video/mp4", :stream => true, :x_sendfile => true, :disposition => 'inline', :file_name => file_name, :buffer_size  =>  2048
-          Rails.logger.info "Arquivo enviado IOS"
+            response.header["Accept-Ranges"]=  "bytes"
+            response.header["Content-Range"] = "bytes #{bytes.begin}-#{bytes.end}/#{size}"
+
+            Rails.logger.info "bytes #{bytes.begin}-#{bytes.end}/#{size}"
+            Rails.logger.info "Iniciando o envio IOS"
+            send_data IO.binread(file_path,length, offset), :type => "video/mp4", :stream => true, :x_sendfile => true, :disposition => 'inline', :file_name => file_name, :buffer_size  =>  2048
+            Rails.logger.info "Arquivo enviado IOS"
+          else
+            Rails.logger.info "Bloqueio de streaming de video - Suspeita de TurboDL"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+          end          
         else
           Rails.logger.info "Bloqueio de streaming de video - Suspeita de copia"
           render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
