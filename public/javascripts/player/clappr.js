@@ -3391,6 +3391,7 @@ var Container = (function (_UIObject) {
     },
     play: {
       value: function play() {
+        this.playback.src = this.playback.src +"&t="+(new Date()).getTime();
         this.playback.play();
       }
     },
@@ -7676,7 +7677,7 @@ var GoogleAnalytics = (function (_ContainerPlugin) {
     },
     onPlay: {
       value: function onPlay() {
-        this.push(["Video", "Play", this.container.playback.src]);
+        this.push(["Video", "Play", this.container.playback.src+"&t="+(new Date()).getTime()]);
       }
     },
     onStop: {
