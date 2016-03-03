@@ -13,53 +13,22 @@ class VideoController < ApplicationController
   # end
 
   def gera_video
-    require 'openssl'
-    require 'digest/sha1'
-
     user_agent = request.env['HTTP_USER_AGENT']
 
     Rails.logger.info " request - #{request} "
 
     Rails.logger.info " User Agent - #{user_agent} "
     Rails.logger.info " Token Video - #{params[:tokenvideo]} "
-    token_video = params[:tokenvideo]
     video = params[:video]
 
-    iv = Base64.decode64("kT+uMuPwUk2LH4cFbK0GiA==")
-    key = ["6476b3f5ec6dcaddb637e9c9654aa687"].pack("H*")
+    #trata chamada
+    indiceToken = trataToken(params[:tokenvideo])    
+    token_video = indiceToken[0]
+    tamanho = indiceToken[1]
 
-    decipher = OpenSSL::Cipher::Cipher.new('aes-128-cbc')
-    decipher.decrypt
-    decipher.key = key
-    decipher.iv = iv
-
-    Rails.logger.info "token_video: #{token_video}"
-    if token_video == "" || token_video == nil || token_video == " "
-      token_video = "YvfRfUIiy1XlbKET9HO1mFZmpXdq0iTn7pAX5oiuy+I="
-    end
-    text = decipher.update(Base64.strict_decode64(token_video)) 
-    text << decipher.final
-
-    puts "encrypted: #{text}\n"
-    #encrypted_text = Base64.strict_encode64(text)
-    indice = ["", ""]
-    if text
-      begin
-        indice = text.split("|")
-        token_video = indice[0]
-        tamanho = Integer(indice[1])
-      rescue
-        token_video = ""
-        tamanho = 0
-      end
-    end
-
-    Rails.logger.info " tamanho - #{tamanho} "
-    Rails.logger.info " token_video - #{token_video} "
-
+    #valida ipad
     ipad = Regexp.new("ipad").match(token_video.to_s.downcase)
     
-    #debugger
     #Verifica a plataforma
     if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
       navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
@@ -103,53 +72,22 @@ class VideoController < ApplicationController
   end
 
   def gera_video_streaming
-    require 'openssl'
-    require 'digest/sha1'
-
     user_agent = request.env['HTTP_USER_AGENT']
 
     Rails.logger.info " request - #{request} "
 
     Rails.logger.info " User Agent - #{user_agent} "
     Rails.logger.info " Token Video - #{params[:tokenvideo]} "
-    token_video = params[:tokenvideo]
     video = params[:video]
 
-    iv = Base64.decode64("kT+uMuPwUk2LH4cFbK0GiA==")
-    key = ["6476b3f5ec6dcaddb637e9c9654aa687"].pack("H*")
+    #trata chamada
+    indiceToken = trataToken(params[:tokenvideo])    
+    token_video = indiceToken[0]
+    tamanho = indiceToken[1]
 
-    decipher = OpenSSL::Cipher::Cipher.new('aes-128-cbc')
-    decipher.decrypt
-    decipher.key = key
-    decipher.iv = iv
-
-    Rails.logger.info "token_video: #{token_video}"
-    if token_video == "" || token_video == nil || token_video == " "
-      token_video = "YvfRfUIiy1XlbKET9HO1mFZmpXdq0iTn7pAX5oiuy+I="
-    end
-    text = decipher.update(Base64.strict_decode64(token_video)) 
-    text << decipher.final
-
-    puts "encrypted: #{text}\n"
-    #encrypted_text = Base64.strict_encode64(text)
-    indice = ["", ""]
-    if text
-      begin
-        indice = text.split("|")
-        token_video = indice[0]
-        tamanho = Integer(indice[1])
-      rescue
-        token_video = ""
-        tamanho = 0
-      end
-    end
-
-    Rails.logger.info " tamanho - #{tamanho} "
-    Rails.logger.info " token_video - #{token_video} "
-
+    #valida ipad
     ipad = Regexp.new("ipad").match(token_video.to_s.downcase)
     
-    #debugger
     #Verifica a plataforma
     if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
       navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
@@ -478,6 +416,8 @@ class VideoController < ApplicationController
 
   def exibe_video_streaming
 
+    indiceToken = trataToken(params[:tokenvideo])
+
     user_agent = request.env['HTTP_USER_AGENT']
     chrome, safari, firefox = false
     diretorio = "/mnt/Vids"
@@ -651,6 +591,45 @@ class VideoController < ApplicationController
       render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
     end
 
+  end
+
+  def trataToken(token)
+    token_video = token
+
+    require 'openssl'
+    require 'digest/sha1'
+
+    iv = Base64.decode64("kT+uMuPwUk2LH4cFbK0GiA==")
+    key = ["6476b3f5ec6dcaddb637e9c9654aa687"].pack("H*")
+    decipher = OpenSSL::Cipher::Cipher.new('aes-128-cbc')
+    decipher.decrypt
+    decipher.key = key
+    decipher.iv = iv
+    Rails.logger.info "token_video: #{token_video}"
+    if token_video == "" || token_video == nil || token_video == " "
+      token_video = "YvfRfUIiy1XlbKET9HO1mFZmpXdq0iTn7pAX5oiuy+I="
+    end
+    text = decipher.update(Base64.strict_decode64(token_video)) 
+    text << decipher.final
+    puts "encrypted: #{text}\n"
+    indice = ["", ""]
+    if text
+      begin
+        indice = text.split("|")
+        token_video = indice[0]
+        tamanho = Integer(indice[1])
+      rescue
+        token_video = ""
+        tamanho = 0
+      end
+    end
+
+    Rails.logger.info " tamanho - #{tamanho} "
+    Rails.logger.info " token_video - #{token_video} "
+    indice = [token_video, tamanho]
+    
+    #return dos indices
+    return indice
   end
 
   def exibe_video_html5

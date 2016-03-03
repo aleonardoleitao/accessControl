@@ -135,7 +135,7 @@ function exibeVideo(urlServer, imagem, urlCompleta, idVideo, width, perfil) {
 	
 	var player = new Clappr.Player({
 		poster: imagem,
-		source: urlCompleta,
+		source: urlCompleta+"&tokenvideo=" + controleConf(idVideo),
 		parentId: idVideo,
 		width: valueWidth,
 		height: valueHeight,
@@ -161,7 +161,7 @@ function exibeVideoStreaming(urlServer, imagem, urlCompleta, idVideo, width, per
 	
 	var player = new Clappr.Player({
 		poster: imagem,
-		source: urlCompleta,
+		source: urlCompleta+"&tokenvideo=" + controleConf(idVideo),
 		parentId: idVideo,
 		width: valueWidth,
 		height: valueHeight,

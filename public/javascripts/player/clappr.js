@@ -3391,7 +3391,6 @@ var Container = (function (_UIObject) {
     },
     play: {
       value: function play() {
-        this.playback.src = this.playback.src +"&t="+(new Date()).getTime();
         this.playback.play();
       }
     },
