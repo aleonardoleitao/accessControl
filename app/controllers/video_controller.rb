@@ -322,8 +322,8 @@ class VideoController < ApplicationController
     Rails.logger.info ("Android - #{mobile_android}")
     Rails.logger.info ("IOs - #{mobile_iphone}")
     Rails.logger.info ("Windows CE - #{mobile_windowsce}")
-    Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
-    Rails.logger.info ("Range - #{range} ")
+    Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']}")
+    Rails.logger.info ("Range - #{range}")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
     Rails.logger.info ("Plataforma habilitada - #{plataforma_habilitada} ")
 
@@ -340,7 +340,7 @@ class VideoController < ApplicationController
 
       if (mobile_iphone!=0) || ((request.headers["HTTP_RANGE"]) && !chrome && !firefox && !(mobile_android != 0 || mobile_windowsce != 0))
 
-        if range != "bytes=0-" || (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length==0
+        if range != "bytes=0-" && (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length==0
           size = File.size(file_path)
           bytes = Rack::Utils.byte_ranges(request.headers, size)[0]
           offset = bytes.begin
