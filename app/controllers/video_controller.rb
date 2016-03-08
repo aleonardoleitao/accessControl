@@ -31,7 +31,7 @@ class VideoController < ApplicationController
     
     #Verifica a plataforma
     if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
-      navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
+      navegador_habilitado = Regexp.new("wow64|macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
     end
 
     #Verifica se e webview
@@ -90,7 +90,7 @@ class VideoController < ApplicationController
     
     #Verifica a plataforma
     if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
-      navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
+      navegador_habilitado = Regexp.new("wow64|macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
     end
 
     #Verifica se e webview
@@ -407,10 +407,10 @@ class VideoController < ApplicationController
             Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
-          elsif (Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(user_agent.to_s.downcase)).to_s.length>0
-            Rails.logger.info "Bloqueio quando for macintel|macintosh|macppc|mac68k|win32|win64"
+          elsif (Regexp.new("wow64|macintel|macintosh|macppc|mac68k|win32|win64").match(user_agent.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando for wow64|macintel|macintosh|macppc|mac68k|win32|win64"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
-                        
+
           else
             Rails.logger.info "Exibindo videos apenas para WP/Android"
             Rails.logger.info file_path
@@ -631,8 +631,8 @@ class VideoController < ApplicationController
             Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
-          elsif (Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(user_agent.to_s.downcase)).to_s.length>0
-            Rails.logger.info "Bloqueio quando for macintel|macintosh|macppc|mac68k|win32|win64"
+          elsif (Regexp.new("wow64|macintel|macintosh|macppc|mac68k|win32|win64").match(user_agent.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando for wow64|macintel|macintosh|macppc|mac68k|win32|win64"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
                         
           else
