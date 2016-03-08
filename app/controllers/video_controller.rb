@@ -387,8 +387,8 @@ class VideoController < ApplicationController
             Rails.logger.info "Bloqueio quando nao for android e range bytes=0-"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
-          elsif range == "bytes=0-" && mobile_android == 0
-            Rails.logger.info "Bloqueio quando nao for android e range bytes=0-"
+          elsif range == "bytes=0-1" && mobile_android == 0
+            Rails.logger.info "Bloqueio quando nao for android e range bytes=0-1"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           elsif mobile_iphone != 0
@@ -405,6 +405,10 @@ class VideoController < ApplicationController
 
           elsif range.to_s.length==0 && user_agent=="NativeHost" && acessoDuplicado == true
             Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          elsif (Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando for plataforma windows ou mac"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           elsif (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length>0
@@ -434,7 +438,7 @@ class VideoController < ApplicationController
     
     #valida ipad
     ipad = (Regexp.new("ipad").match(token_video.to_s.downcase)).to_s.length>0
-    
+
     #Verifica a plataforma
     if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
       navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
@@ -545,8 +549,8 @@ class VideoController < ApplicationController
     Rails.logger.info ("Android - #{mobile_android}")
     Rails.logger.info ("IOs - #{mobile_iphone}")
     Rails.logger.info ("Windows CE - #{mobile_windowsce}")
-    Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']} ")
-    Rails.logger.info ("Range - #{range} ")
+    Rails.logger.info ("Range - #{request.headers['HTTP_RANGE']}")
+    Rails.logger.info ("Range - #{range}")
     Rails.logger.info ("Range - #{acessoDuplicado && video.range != range} ")
     Rails.logger.info ("Plataforma habilitada - #{plataforma_habilitada} ")
 
@@ -563,7 +567,7 @@ class VideoController < ApplicationController
 
       if (mobile_iphone!=0) || ((request.headers["HTTP_RANGE"]) && !chrome && !firefox && !(mobile_android != 0 || mobile_windowsce != 0))
 
-        if range != "bytes=0-" || (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length==0
+        if range != "bytes=0-" && (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length==0
           size = File.size(file_path)
           bytes = Rack::Utils.byte_ranges(request.headers, size)[0]
           offset = bytes.begin
@@ -610,8 +614,8 @@ class VideoController < ApplicationController
             Rails.logger.info "Bloqueio quando nao for android e range bytes=0-"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
-          elsif range == "bytes=0-" && mobile_android == 0
-            Rails.logger.info "Bloqueio quando nao for android e range bytes=0-"
+          elsif range == "bytes=0-1" && mobile_android == 0
+            Rails.logger.info "Bloqueio quando nao for android e range bytes=0-1"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           elsif mobile_iphone != 0
@@ -628,6 +632,10 @@ class VideoController < ApplicationController
 
           elsif range.to_s.length==0 && user_agent=="NativeHost" && acessoDuplicado == true
             Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          elsif (Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando for plataforma windows ou mac"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
           elsif (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length>0
