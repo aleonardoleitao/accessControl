@@ -387,10 +387,6 @@ class VideoController < ApplicationController
             Rails.logger.info "Bloqueio quando nao for android e range bytes=0-"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
-          elsif range == "bytes=0-1" && mobile_android == 0
-            Rails.logger.info "Bloqueio quando nao for android e range bytes=0-1"
-            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
-
           elsif mobile_iphone != 0
             Rails.logger.info "Bloqueio quando for iphone"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
@@ -407,13 +403,14 @@ class VideoController < ApplicationController
             Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
-          elsif (Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)).to_s.length>0
-            Rails.logger.info "Bloqueio quando for plataforma windows ou mac"
-            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
-
           elsif (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length>0
             Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          elsif (Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(user_agent.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando for macintel|macintosh|macppc|mac68k|win32|win64"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+                        
           else
             Rails.logger.info "Exibindo videos apenas para WP/Android"
             Rails.logger.info file_path
@@ -438,7 +435,7 @@ class VideoController < ApplicationController
     
     #valida ipad
     ipad = (Regexp.new("ipad").match(token_video.to_s.downcase)).to_s.length>0
-
+    
     #Verifica a plataforma
     if token_video.to_s.downcase != "" and token_video.to_s.downcase != "unknown"
       navegador_habilitado = Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)
@@ -614,10 +611,6 @@ class VideoController < ApplicationController
             Rails.logger.info "Bloqueio quando nao for android e range bytes=0-"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
-          elsif range == "bytes=0-1" && mobile_android == 0
-            Rails.logger.info "Bloqueio quando nao for android e range bytes=0-1"
-            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
-
           elsif mobile_iphone != 0
             Rails.logger.info "Bloqueio quando for iphone"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
@@ -634,13 +627,14 @@ class VideoController < ApplicationController
             Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
 
-          elsif (Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(token_video.to_s.downcase)).to_s.length>0
-            Rails.logger.info "Bloqueio quando for plataforma windows ou mac"
-            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
-
           elsif (Regexp.new("turbodl").match(user_agent.to_s.downcase)).to_s.length>0
             Rails.logger.info "Bloqueio quando for WP de copia, NativeHost e Range vazio"
             render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+
+          elsif (Regexp.new("macintel|macintosh|macppc|mac68k|win32|win64").match(user_agent.to_s.downcase)).to_s.length>0
+            Rails.logger.info "Bloqueio quando for macintel|macintosh|macppc|mac68k|win32|win64"
+            render(:file => "#{Rails.root}/public/403.html", :status => 403, :layout => false)
+                        
           else
             Rails.logger.info "Exibindo videos apenas para WP/Android"
             Rails.logger.info file_path
